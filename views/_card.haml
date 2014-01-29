@@ -1,2 +1,6 @@
 .card
-  %h2 title
+  %h2 price
+  %form
+    %input{:type=>"radio", :name=>"card-contents", :value=>"question"} question
+    %br
+    %input{:type=>"radio", :name=>"card-contents", :value=>"answer"} answer

@@ -1,17 +1,64 @@
+@mixin border-radius($size) {
+  -webkit-border-radius: $size;
+     -moz-border-radius: $size;
+          border-radius: $size;
+}
+
+.scoreboard {
+  background: rgba(255,255,255,0.5);
+  width: 80%;
+  margin: 20px auto;
+}
+
+.board {
+  width: 80%;
+  margin: auto;
+}
+
+/* cards */
 .card {
+  @include border-radius(10px);
   background-color: #26c4ff;
   margin: 4px 1px;
-  height: 200px;
+  height: 175px;
   width: 100%;
   h2 {
     color: white;
-    position: relative;
-    bottom: 70%;
+  }
+  &.chosen {
+    border: 5px solid yellow;
+  }
+  &.played {
+    background: gray url(/img/trebek-small.png) no-repeat center;
   }
 }
 
+/* header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #FF69B4;
+  ul {
+    float: right;
+  }
+  li {
+    display: inline-block;
+    padding: 10px 20px;
+  }
+  h1 {
+    display: inline-block;
+  }
+}
+
+/* grid */
 .col6 {
   width: 16%;
+  display: inline-block;
+}
+
+.col3 {
+  width: 33%;
   display: inline-block;
 }
 
@@ -22,5 +69,7 @@
 }
 
 body {
+  padding-top: 60px;
   font-family: 'Helvetica', 'Arial', sans-serif;
+  background: url(/img/shattered-island.gif);
 }

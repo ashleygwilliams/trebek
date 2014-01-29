@@ -4,5 +4,8 @@
     %title Trebek
     %link{:href=>"styles.css", :rel=>"stylesheet"}
   %body
+    = partial :header
     .container
       = yield
+    %script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+    %script{:src=>"trebek.js"}

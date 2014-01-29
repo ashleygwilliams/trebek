@@ -1,5 +1,8 @@
-%h1 an album cover
-- 6.times do
-  .col6
-    - 6.times do
-      = partial :card
+
+.board
+  %h1 an album cover
+  - 6.times do
+    .col6
+      - 6.times do
+        = partial :card
+= partial :scoreboard
