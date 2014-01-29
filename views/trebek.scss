@@ -1,0 +1,26 @@
+.card {
+  background-color: #26c4ff;
+  margin: 4px 1px;
+  height: 200px;
+  width: 100%;
+  h2 {
+    color: white;
+    position: relative;
+    bottom: 70%;
+  }
+}
+
+.col6 {
+  width: 16%;
+  display: inline-block;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
