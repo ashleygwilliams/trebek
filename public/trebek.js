@@ -48,14 +48,14 @@ $(document).ready(function(){
 
   //make + and - buttons work
   $(".player button.up").on("click", function(event) {
-    var currentScore = parseInt($(this).parent().find("h2.score").text());
-    $(this).parent().find("h2.score").text(currentScore + points);
+    var currentScore = parseInt($(this).parent().find("h2").text());
+    $(this).parent().find("h2").text(currentScore + points);
     event.preventDefault();
   });
 
   $(".player button.down").on("click", function(event) {
-    var currentScore = parseInt($(this).parent().find("h2.score").text());
-    $(this).parent().find("h2.score").text(currentScore - points);
+    var currentScore = parseInt($(this).parent().find("h2").text());
+    $(this).parent().find("h2").text(currentScore - points);
     event.preventDefault();
   });
 });
