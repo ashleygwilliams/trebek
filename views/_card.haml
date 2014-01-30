@@ -1,6 +1,7 @@
-.card
-  %h2 price
-  %form
-    %input{:type=>"radio", :name=>"card-contents", :value=>"question"} question
-    %br
-    %input{:type=>"radio", :name=>"card-contents", :value=>"answer"} answer
+.card.col6
+  .value 
+    = @card.value
+  .question
+    = @card.question
+  .answer
+    = @card.answer

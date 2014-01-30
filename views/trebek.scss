@@ -1,7 +1,16 @@
+@import url(http://fonts.googleapis.com/css?family=Overlock:400,700,900,400italic,700italic,900italic);
+
 @mixin border-radius($size) {
   -webkit-border-radius: $size;
      -moz-border-radius: $size;
           border-radius: $size;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: white;
 }
 
 .scoreboard {
@@ -19,18 +28,39 @@
 .card {
   @include border-radius(10px);
   background-color: #26c4ff;
-  margin: 4px 1px;
   height: 175px;
-  width: 100%;
-  h2 {
-    color: white;
+  border: 5px solid transparent;
+  box-sizing: box-border;
+  position: relative;
+
+  /* card components */
+  .question, .answer {
+    display: none; /* hide question and answer */
+    font-size: 25px;
   }
+  .value, .question, .answer {
+    position: absolute;
+    top: 0;
+    color: white;
+    font-weight: 900;
+  }
+  .value {
+    font-size: 45px;
+  }
+
+  /* card status */
   &.chosen {
     border: 5px solid yellow;
   }
   &.played {
+    border: 5px solid gray;
     background: gray url(/img/trebek-small.png) no-repeat center;
   }
+  &.disabled{
+    background-color: gray;
+    color: #666666;
+  }
+
 }
 
 /* header */
@@ -38,7 +68,6 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #FF69B4;
   ul {
     float: right;
   }
@@ -47,6 +76,8 @@ header {
     padding: 10px 20px;
   }
   h1 {
+    font-size: 90px;
+    font-style: italic;
     display: inline-block;
   }
 }
@@ -70,6 +101,6 @@ header {
 
 body {
   padding-top: 60px;
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Overlock', 'Helvetica', 'Arial', sans-serif;
   background: url(/img/shattered-island.gif);
 }

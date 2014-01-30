@@ -1,0 +1,8 @@
+%h1 an album cover
+.board
+  - @cards.each do |card|
+    = partial :card, @card=card
+= partial :scoreboard
+%footer
+  %img{:src=>"/img/trebek.png"}
+  powered by gambit and trebek, (c)2014 ashley williams

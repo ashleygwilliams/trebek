@@ -12,18 +12,37 @@ class Gambit < Sinatra::Application
     set :public_folder, 'public'
   end
 
+  get "/styles.css" do
+    scss :trebek
+  end
+
   get "/" do
     haml :index
   end
 
-  get "/deck/:file_name" do
-    deck = Deck.new("data/#{params[:file_name]}.yml")
+  get "/games/new/" do
+    haml :game_form
+  end
+
+  post "/games/" do
+    @game = Game.new(Deck.new("data/#{params[:deck_file]}.yml"))
+  end
+
+  get "/games/:type/:deck_file" do
+    deck = Deck.new("data/#{params[:deck_file]}.yml")
+    @cards = deck.cards
+    haml :"#{params[:type]}"
+  end
+
+  get "/decks/:deck_file" do
+    deck = Deck.new("data/#{params[:deck_file]}.yml")
     @cards = deck.cards
     haml :deck
   end
 
-  get "/styles.css" do
-    scss :trebek
+  get "/:deck_file" do
+    @deck = YAML::load(File.open("data/#{params[:deck_file]}.yml"))
+    haml :test
   end
 
   helpers do
@@ -46,7 +65,7 @@ class Gambit < Sinatra::Application
         haml template
       end
     end
-    
+
   end
 
 end

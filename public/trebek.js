@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  var game = true;
+  //var game = true;
 
   //while(game) {
 
@@ -13,28 +13,49 @@ $(document).ready(function(){
   //$("div.card").on("click", function(eventObject){
   //  $(this).find("h2").text("it worked!");
   //});
-
+  
+  points = 0;
+  
   //toggle text
-  $("div.card").on("click", function() {
+  $("div.card").on("click", function(event) {
 
-    // remove chosen class and replace with played class
-    $(".chosen").addClass("played").removeClass("chosen").html("");
+    event.stopPropagation();
+    event.preventDefault();
 
-    //indicate card has been played
-    $(this).addClass("chosen");
+    if(!$(this).hasClass("disabled") && !$(this).hasClass("played")) {
 
-    var txt = $(this).find("form :checked").val();
-    $(this).find("h2").text(txt);
+      $(this).addClass("chosen");
+      $(this).siblings().removeClass("chosen");
+
+      if($(this).find(".value").is(":visible")){
+        $(this).find(".value").fadeOut();
+        $(this).find(".question").fadeIn();
+        $(this).siblings().addClass("disabled");
+      } else if($(this).find(".question").is(":visible")){
+        $(this).find(".question").fadeOut();
+        $(this).find(".answer").fadeIn();
+      } else {
+        $(this).find(".answer").fadeOut();
+        $(this).siblings().removeClass("disabled");
+        $(this).addClass("played").removeClass("chosen");
+      }
+      
+    }
+
+    points = parseInt($(this).find(".value").text());
+
   });
 
   //make + and - buttons work
-  $(".player button.up").on("click", function() {
+  $(".player button.up").on("click", function(event) {
     var currentScore = parseInt($(this).parent().find("h2.score").text());
-    $(this).parent().find("h2.score").text(currentScore + 1);
+    $(this).parent().find("h2.score").text(currentScore + points);
+    event.preventDefault();
   });
 
-  $(".player button.down").on("click", function() {
+  $(".player button.down").on("click", function(event) {
     var currentScore = parseInt($(this).parent().find("h2.score").text());
-    $(this).parent().find("h2.score").text(currentScore - 1);
+    $(this).parent().find("h2.score").text(currentScore - points);
+    event.preventDefault();
   });
 });
