@@ -22,24 +22,24 @@ $(document).ready(function(){
     event.stopPropagation();
     event.preventDefault();
 
-    if(!$(this).hasClass("disabled") && !$(this).hasClass("played")) {
+    if(!$(this).hasClass("disabled") && !$(this).hasClass("played") && !$(this).hasClass("cat-card")) {
 
       $(this).addClass("chosen");
       $(this).siblings().removeClass("chosen");
 
-      if($(this).find(".value").is(":visible")){
+      if($(this).find(".value").is(":visible")){               //if price is showing, show question
         $(this).find(".value").fadeOut();
         $(this).find(".question").fadeIn();
-        $(this).siblings().addClass("disabled");
-      } else if($(this).find(".question").is(":visible")){
+        $(this).siblings().not(".cat-card").addClass("disabled");
+      } else if($(this).find(".question").is(":visible")){    //if question is showing, show answer
         $(this).find(".question").fadeOut();
         $(this).find(".answer").fadeIn();
-      } else {
+      } else {                                                //if answer is showing, show trebek img
         $(this).find(".answer").fadeOut();
-        $(this).siblings().removeClass("disabled");
+        $(this).siblings().not(".cat-card").removeClass("disabled");
         $(this).addClass("played").removeClass("chosen");
       }
-      
+
     }
 
     points = parseInt($(this).find(".value").text());
