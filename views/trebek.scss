@@ -72,6 +72,11 @@ h1 {
   border: 2.5px solid transparent;
   position: relative;
 
+  /* events */
+  &:hover{
+    cursor: pointer;
+  }
+
   /* card components */
   .question, .answer {
     display: none; /* hide question and answer */
