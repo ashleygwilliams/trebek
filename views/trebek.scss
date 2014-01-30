@@ -151,6 +151,10 @@ h1 {
     width: 40px;
     height: 40px;
     text-align: center;
+    &.disabled{
+      background-color: gray;
+      color: #666666;
+    }
   }
 }
 

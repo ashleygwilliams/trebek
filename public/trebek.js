@@ -34,6 +34,7 @@ $(document).ready(function(){
       } else if($(this).find(".question").is(":visible")){    //if question is showing, show answer
         $(this).find(".question").fadeOut();
         $(this).find(".answer").fadeIn();
+        $("button").removeClass("disabled");
       } else {                                                //if answer is showing, show trebek img
         $(this).find(".answer").fadeOut();
         $(this).siblings().not(".cat-card").removeClass("disabled");
@@ -50,6 +51,7 @@ $(document).ready(function(){
   $(".player button.up").on("click", function(event) {
     var currentScore = parseInt($(this).parent().find("h2").text());
     $(this).parent().find("h2").text(currentScore + points);
+    $("button").addClass("disabled");
     event.preventDefault();
   });
 
