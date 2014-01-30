@@ -48,16 +48,21 @@ $(document).ready(function(){
   });
 
   //make + and - buttons work
-  $(".player button.up").on("click", function(event) {
-    var currentScore = parseInt($(this).parent().find("h2").text());
-    $(this).parent().find("h2").text(currentScore + points);
-    $("button").addClass("disabled");
-    event.preventDefault();
-  });
+    $(".player button.up").on("click", function(event) {
+      if(!$(this).hasClass("disabled")){
+        var currentScore = parseInt($(this).parent().find("h2").text());
+        $(this).parent().find("h2").text(currentScore + points);
+        $("button").addClass("disabled");
+      }
+      event.preventDefault();
+    });
 
-  $(".player button.down").on("click", function(event) {
-    var currentScore = parseInt($(this).parent().find("h2").text());
-    $(this).parent().find("h2").text(currentScore - points);
-    event.preventDefault();
-  });
+    $(".player button.down").on("click", function(event) {
+      if(!$(this).hasClass("disabled")){
+        var currentScore = parseInt($(this).parent().find("h2").text());
+        $(this).parent().find("h2").text(currentScore - points);
+        $("button").addClass("disabled");
+      }
+      event.preventDefault();
+    });
 });
