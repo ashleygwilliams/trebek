@@ -30,11 +30,11 @@ $(document).ready(function(){
       if($(this).find(".value").is(":visible")){               //if price is showing, show question
         $(this).find(".value").fadeOut();
         $(this).find(".question").fadeIn();
+        $("button").removeClass("disabled");
         $(this).siblings().not(".cat-card").addClass("disabled");
       } else if($(this).find(".question").is(":visible")){    //if question is showing, show answer
         $(this).find(".question").fadeOut();
         $(this).find(".answer").fadeIn();
-        $("button").removeClass("disabled");
       } else {                                                //if answer is showing, show trebek img
         $(this).find(".answer").fadeOut();
         $(this).siblings().not(".cat-card").removeClass("disabled");
