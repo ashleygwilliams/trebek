@@ -99,7 +99,7 @@ h1 {
   }
   &.played {
     border: 2.5px solid gray;
-    background: gray url(/img/trebek-small.png) no-repeat center;
+    background: gray url("/img/trebek\-small.png") no-repeat center;
   }
   &.disabled{
     background-color: gray;
