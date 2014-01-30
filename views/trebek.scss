@@ -21,7 +21,7 @@ body {
 }
 
 .col6 {
-  width: 13%;
+  width: 15%;
   display: inline-block;
 }
 
@@ -30,12 +30,23 @@ body {
   display: inline-block;
 }
 
+.col2 {
+  width: 50%;
+  display: inline-block;
+}
+
 /* layout components */
 footer {
   position: fixed;
   bottom: 0;
-  left: 0;
   color: white;
+  text-align: center;
+  width: 100%;
+  img {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 /* type */
@@ -52,7 +63,6 @@ h1 {
   background-color: $flatiron-blue;
   height: 90px;
   border: 2.5px solid transparent;
-  box-sizing: box-border;
   position: relative;
 
   /* card components */
@@ -66,10 +76,14 @@ h1 {
     position: absolute;
     top: 27.5px;
     color: white;
-    font-weight: 900;
+    font-weight: 700;
   }
   .value, .cat {
-    font-size: 15px;
+    font-size: 30px;
+  }
+
+  .cat {
+    font-weight: 900;
   }
 
   /* card status */
@@ -99,11 +113,26 @@ h1 {
   background: rgba(255,255,255,0.5);
   width: 100%;
   margin: 10px auto;
+  padding: 10px;
 }
 
 .scoreboard {
   width: 80%;
   margin: auto;
+  .player, .score {
+    display: inline-block;
+  }
+  .user {
+    h2 {
+      margin: 0;
+    }
+    img {
+      background-color: rgba(255,255,255,0.3);
+      border: 1px white solid;
+      padding: 10px;
+    }
+  }
+
   button {
     @include border-radius(10px);
 
@@ -112,7 +141,9 @@ h1 {
     color: black;
     font-size: 20px;
     font-weight: 900;
-    padding: 5px 12.5px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
   }
 }
 
