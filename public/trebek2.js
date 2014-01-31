@@ -11,11 +11,16 @@ $(".card").not(".cat-card").on('click', function(){
       $this.find(".question").hide();
       $(".score").find("button").removeClass("disabled");
       $(".chosen").on('click', function() {
-        var $this = $(this);
-        $this.find(".answer").hide();
-        $this.addClass("played");
-        $(".card").not(".cat-card").not($this).removeClass("disabled");
-        $(".score").find("button").addClass("disabled");
+        if(!$(".score").find("button").hasClass("disabled")) {
+          alert("Did you give someone points?");
+        }
+        else {
+          var $this = $(this);
+          $this.find(".answer").hide();
+          $this.addClass("played");
+          $(".card").not(".cat-card").not($this).removeClass("disabled");
+          $(".score").find("button").addClass("disabled");
+        }
       });
     });
   }
