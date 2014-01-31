@@ -52,8 +52,6 @@ $(document).ready(function() {
   function changeScore(object, action) {
     var $container = object.parent().find("h2");
     var score = parseInt($container.text());
-    console.log(score);
-    console.log(cardValue);
     if (action === "increase") {
       var newTotal = $container.text(score + cardValue);
     } else if (action === "decrease") {
