@@ -1,5 +1,6 @@
 $(document).ready(function(){
   var $card = $(".card").not(".cat-card");
+  var $points;
 
   $card.on("click", function(){
     var $this = $(this);
@@ -15,6 +16,7 @@ $(document).ready(function(){
       $value.attr("style", "display: none");
       $question.attr("style", "display: block");
       $("button").removeClass("disabled");
+      $points = $value.text();
     } else if (!$disabled && $question.attr("style") == "display: block"){
       $question.attr("style", "display: none");
       $answer.attr("style", "display: block");
