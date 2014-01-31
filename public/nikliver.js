@@ -9,7 +9,7 @@ $(document).ready(function() {
     var $question = $this.find(".question");
     var $answer = $this.find(".answer");
 
-    if (!isDisabled($this)) {
+    if (isNotDisabled($this)) {
       if (isVisible($value)) {
         $value.fadeOut();
         $question.fadeIn();
@@ -30,7 +30,7 @@ $(document).ready(function() {
 
   $buttons.on("click", function(event) {
     var $this = $(this);
-    if (!isDisabled($this)) {
+    if (isNotDisabled($this)) {
       if ($this.hasClass("up")) {
         changeScore($this, "increase");
       } else {
@@ -45,8 +45,8 @@ $(document).ready(function() {
     return object.is(":visible");
   }
 
-  function isDisabled(object) {
-    return object.hasClass("disabled");
+  function isNotDisabled(object) {
+    return !object.hasClass("disabled");
   }
 
   function changeScore(object, action) {
