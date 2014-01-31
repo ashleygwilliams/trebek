@@ -5,7 +5,7 @@ $(document).ready(function() {
 
   $playCards.on('click', function(){
     var $this = $(this);
-    if(!$this.hasClass("disabled")) {
+    if(!$this.hasClass("disabled") && !$this.hasClass("played")) {
       if(!$this.hasClass("chosen")) {
         $this.addClass("chosen");
         $this.find("div.value").fadeOut();
