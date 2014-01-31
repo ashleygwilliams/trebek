@@ -19,5 +19,9 @@ $(".card").not(".cat-card").on('click', function(){
   });
 });
 
+$(".score").children().on("click", function() {
+  $(".score").children().addClass("disabled");
+});
+
 
 
