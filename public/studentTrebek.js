@@ -6,9 +6,9 @@ $(document).ready(function(){
     var $this = $(this);
     var $other = $card.not($this).not(".played");
     var $disabled = $this.hasClass("disabled");
-    var $question = $this.children().filter(".question");
-    var $answer = $this.children().filter(".answer");
-    var $value = $this.children().filter(".value");
+    var $question = $this.find(".question");
+    var $answer = $this.find(".answer");
+    var $value = $this.find(".value");
 
     if (!$disabled && $value.attr("style") == null){
       $other.addClass("disabled");
