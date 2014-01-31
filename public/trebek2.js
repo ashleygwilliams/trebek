@@ -12,14 +12,7 @@ $(".card").not(".cat-card").on('click', function(){
       $(".score").find("button").removeClass("disabled");
       $(".chosen").on('click', function() {
         if(!$(".score").find("button").hasClass("disabled")) {
-          alert("Did you give someone points?");
-        }
-        else {
-          var $this = $(this);
-          $this.find(".answer").hide();
-          $this.addClass("played");
-          $(".card").not(".cat-card").not($this).removeClass("disabled");
-          $(".score").find("button").addClass("disabled");
+          alert("Please give out the points!");
         }
       });
     });
@@ -39,6 +32,11 @@ $(".score").children().on("click", function() {
     $score -= $points;
     $this.parent().find("h2").text(String($score));
   }
+  $(".score").find("button").addClass("disabled");
+  var $card = $(".chosen");
+  $card.find(".answer").hide();
+  $card.addClass("played");
+  $(".card").not(".cat-card").not($card).removeClass("disabled");
   $(".score").find("button").addClass("disabled");
 });
 
