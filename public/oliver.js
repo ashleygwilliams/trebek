@@ -19,13 +19,17 @@ $(document).ready(function() {
     if(isVisible($value)) {   // if point value is visible
       $this.addClass("chosen"); //card is chosen
       $notChosen.addClass("disabled");    //disabled all other cards 
-      $value.toggle();
-      $question.toggle();
+      $value.fadeOut();
+      $question.fadeIn();
       enableButtons($value.text());
     } else if(isVisible($question)) {  //if question is visible
-      $question.toggle();
-      $answer.toggle();
+      $question.fadeOut();
+      $answer.fadeIn();
     } else {   // if answer is visible
+      if(clicked == false) {
+        alert("Please change the score of whoever guessed correctly!");
+        return false
+      }
       $this.removeClass("chosen");
       $this.addClass("played");
       $notChosen.removeClass("disabled");
@@ -43,13 +47,14 @@ $(document).ready(function() {
 
   function enableButtons(cardValue) {
     var cardValInt = Number(cardValue);
-    var $buttons = $("button");   // must get all buttons again because this function doesn't have access to the scope in which I first defined $buttons
+    clicked = false;
+    var $buttons = $(".score button");   // must get all buttons again because this function doesn't have access to the scope in which I first defined $buttons
     $buttons.removeClass("disabled");
     $buttons.on("click", function() {
+      clicked = true;
       var $this = $(this);
       var $scoreContainer = $this.parent().children().filter("h2");
       var score = Number($scoreContainer.text());
-
       if(!$this.hasClass("disabled")) {  // if this button isn't disabled
         if($this.hasClass("up")) {   //if user is clicking on an up button
           score += cardValInt;     //increment the score by the value of the card
@@ -63,6 +68,7 @@ $(document).ready(function() {
       }
       
     });
+    return clicked
   }
 
 
