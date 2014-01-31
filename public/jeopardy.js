@@ -11,26 +11,29 @@ var counter = 0;
 
 $cards.on("click", function(){
   var $this = $(this);
-  if (counter == 0) {
-    wager = Number($this.find(".value").text());
-    $this.addClass("chosen");
-    $this.children(".question").css({'display':'block'});
-    $this.children(".value").css({'display':'none'});
-    $cards.not($this).addClass("disabled");
-    $buttons.removeClass("disabled");
-    counter ++;
-  } else if (counter == 1) {
-    $this.children(".question").css({'display':'none'});
-    $this.children(".answer").css({'display':'block'});
-    counter ++;
-  } else {
-    $this.addClass("played");
-    $this.children(".answer").css({'display':'none'});
-    $this.removeClass("chosen");
-    $cards.not($this).removeClass("disabled");
-    counter = 0;
-  };
-
+  var $value = $this.children(".value");
+  var $question = $this.children(".question");
+  var $answer = $this.children(".answer");
+  console.log($this);
+    if (counter == 0) {
+      wager = Number($this.find(".value").text());
+      $this.addClass("chosen");
+      $value.fadeOut();
+      $question.fadeIn();
+      $cards.not($this).addClass("disabled");
+      $buttons.removeClass("disabled");
+      counter ++;
+    } else if (counter == 1) {
+      $question.fadeOut();
+      $answer.fadeIn();
+      counter ++;
+    } else {
+      $answer.fadeOut();
+      $this.removeClass("chosen").addClass("played");
+      $cards.not($this).removeClass("disabled");
+      counter = 0;
+    };
+  
 });
 
 $buttons.on("click", function(){
