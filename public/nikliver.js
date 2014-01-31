@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var $cards = $(".card").not(".cat-card");
-  var $buttons = $(".player button");
+  var $buttons = $(".score button");
   var cardValue;
 
   $cards.on("click", function(event){
