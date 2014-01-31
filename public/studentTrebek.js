@@ -28,4 +28,17 @@ $(document).ready(function(){
     }
   });
 
+  $("button").on("click", function(){
+    var $this = $(this);
+    var $score = $this.siblings("h2");
+    if ($this.not(".disabled")){
+      if ($this.hasClass("up")){
+        $score.text($score.text() + $points);
+        console.log("up");
+      } else {
+
+      }
+    }
+  });
+
 });
