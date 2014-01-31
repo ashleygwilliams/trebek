@@ -5,9 +5,6 @@ $(document).ready(function() {
 
   var $cards = $(".card").not(".cat-card");
   var $buttons = $("button");
-  var $score1 = 0
-  var $score2
-  var $score3
 
   $cards.on("click", function(){
    var $this = $(this);
