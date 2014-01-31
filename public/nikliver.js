@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var $cards = $(".card").not(".cat-card");
   var $buttons = $(".player button");
+  var value;
 
   $cards.on("click", function(){
     var $this = $(this);
@@ -18,6 +19,7 @@ $(document).ready(function() {
       } else if (isVisible($question)) {
         $question.fadeOut();
         $answer.fadeIn();
+        value = parseInt($value.text());
       } else {
         $answer.fadeOut();
         $this.removeClass("chosen").addClass("played");
@@ -50,7 +52,6 @@ $(document).ready(function() {
   function changeScore(object, action) {
     var $container = object.parent().find("h2");
     var score = parseInt($container.text());
-    var value = parseInt($cards.not(".disabled").find(".value").text());
     if (action === "increase") {
       var newTotal = $container.text(score + value);
     } else if (action === "decrease") {
