@@ -31,12 +31,14 @@ $(document).ready(function(){
   $("button").on("click", function(){
     var $this = $(this);
     var $score = $this.siblings("h2");
-    if ($this.not(".disabled")){
+    if (!($this.hasClass("disabled"))){
       if ($this.hasClass("up")){
-        $score.text($score.text() + $points);
-        console.log("up");
+        $score.text(Number($score.text()) + Number($points));
+        $("button").addClass("disabled");
       } else {
-
+        $score.text(Number($score.text()) - Number($points));
+        $this.addClass("disabled");
+        $this.prev().addClass("disabled");
       }
     }
   });
