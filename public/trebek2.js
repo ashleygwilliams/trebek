@@ -9,6 +9,7 @@ $(".card").not(".cat-card").on('click', function(){
     var $this = $(this);
     $this.find(".answer").show();
     $this.find(".question").hide();
+    $(".score").find("button").removeClass("disabled");
     $(".chosen").on('click', function() {
       var $this = $(this);
       $this.find(".answer").hide();
