@@ -15,13 +15,26 @@ $(".card").not(".cat-card").on('click', function(){
         $this.find(".answer").hide();
         $this.addClass("played");
         $(".card").not(".cat-card").not($this).removeClass("disabled");
+        $(".score").find("button").addClass("disabled");
       });
     });
   }
 });
 
+
 $(".score").children().on("click", function() {
-  $(".score").children().addClass("disabled");
+  var $this = $(this);
+  var $score = Number($this.parent().find("h2").text());
+  var $points = Number($(".chosen").find(".value").text());
+  if($this.hasClass("up")) {
+    $score += $points;
+    $this.parent().find("h2").text(String($score));
+  }
+  else {
+    $score -= $points;
+    $this.parent().find("h2").text(String($score));
+  }
+  $(".score").find("button").addClass("disabled");
 });
 
 
