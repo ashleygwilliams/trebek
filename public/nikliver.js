@@ -31,8 +31,7 @@ $(document).ready(function() {
     if (!isDisabled($this)) {
       if ($this.hasClass("up")) {
         changeScore($this, "increase");
-      }
-      else {
+      } else {
         changeScore($this, "decrease");
       }
 
@@ -54,8 +53,7 @@ $(document).ready(function() {
     var value = parseInt($cards.not(".disabled").find(".value").text());
     if (action === "increase") {
       var newTotal = $container.text(score + value);
-    }
-    else {
+    } else if (action === "decrease") {
       var newTotal = $container.text(score - value);
     }
   }
