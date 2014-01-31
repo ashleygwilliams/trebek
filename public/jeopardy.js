@@ -1,34 +1,48 @@
-var num = 0;
+var $cards = $(".card").not(".cat-card,.played,.disabled");
+var $buttons = $(".score button");
+var p1score = 0;
+var p2score = 0;
+var p3score = 0;
+var wager;
+var counter = 0;
+// var $score = $()
 
-$(".card").not(".cat-card,.played").on("click", function(){
+
+
+$cards.on("click", function(){
   var $this = $(this);
-  if (num == 0) {
+  if (counter == 0) {
+    wager = Number($this.find(".value").text());
     $this.addClass("chosen");
     $this.children(".question").css({'display':'block'});
     $this.children(".value").css({'display':'none'});
-    $(".card").not($this).not(".cat-card").not(".played").addClass("disabled");
-    $(".score button").removeClass("disabled");
-    num ++;
-    console.log("first" + num);
-  } else if (num == 1) {
+    $cards.not($this).addClass("disabled");
+    $buttons.removeClass("disabled");
+    counter ++;
+  } else if (counter == 1) {
     $this.children(".question").css({'display':'none'});
     $this.children(".answer").css({'display':'block'});
-    num ++;
-    console.log("second" + num);
+    counter ++;
   } else {
-    console.log("last" + num);
     $this.addClass("played");
     $this.children(".answer").css({'display':'none'});
     $this.removeClass("chosen");
-    $(".card").not($this).not(".cat-card").removeClass("disabled");
-    num = 0;
-    console.log("zero?" + num);
+    $cards.not($this).removeClass("disabled");
+    counter = 0;
   };
 
 });
 
-$(".score button").on("click", function(){
-  $(".score button").addClass("disabled");
+$buttons.on("click", function(){
+  var $this = $(this);
+  $buttons.addClass("disabled");
+  var $score = Number($this.parent().find("h2").text());
+  if ($this.hasClass("up")) {
+    $score = $score + wager;
+  } else {
+    $score = $score - wager;
+  }
+  $this.parent().find("h2").text($score);
 });
 
 
