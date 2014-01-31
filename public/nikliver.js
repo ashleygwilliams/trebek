@@ -1,15 +1,12 @@
-// nikliver.js
-
-
 $(document).ready(function() {
   var $cards = $(".card").not(".cat-card");
-  var $buttons = $("button");
+  var $buttons = $(".player button");
 
   $cards.on("click", function(){
     var $this = $(this);
-    var $value = $this.find(":first-child");
-    var $question = $this.find(":nth-child(2)");
-    var $answer = $this.find(":nth-child(3)");
+    var $value = $this.children().eq(0);
+    var $question = $this.children().eq(1);
+    var $answer = $this.children().eq(2);
 
     if (!isDisabled($this)) {
       if (isVisible($value)) {
@@ -52,7 +49,7 @@ $(document).ready(function() {
   }
 
   function changeScore(object, action) {
-    var $container = object.siblings("h2").first();
+    var $container = object.parent().find("h2");
     var score = parseInt($container.text());
     var value = parseInt($cards.not(".disabled").find(".value").text());
     if (action === "increase") {
