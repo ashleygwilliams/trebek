@@ -3,7 +3,7 @@ $(document).ready(function() {
   var $buttons = $(".player button");
   var cardValue;
 
-  $cards.on("click", function(){
+  $cards.on("click", function(event){
     var $this = $(this);
     var $value = $this.find(".value");
     var $question = $this.find(".question");
@@ -28,7 +28,7 @@ $(document).ready(function() {
     }
   });
 
-  $buttons.on("click", function() {
+  $buttons.on("click", function(event) {
     var $this = $(this);
     if (!isDisabled($this)) {
       if ($this.hasClass("up")) {
