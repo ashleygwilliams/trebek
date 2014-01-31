@@ -18,9 +18,7 @@ $(document).ready(function() {
         $counter.removeClass("disabled");
       }
       else {
-        // if(!$counter.hasClass("disabled")) {
-          alert("Please give out the points!");
-        // }
+        alert("Please give out the points!");
       }
     }
   });
@@ -38,14 +36,11 @@ $(document).ready(function() {
         $score -= $points;
         $this.parent().find("h2").text(String($score));
       }
-      $counter.addClass("disabled");
       var $card = $("div.chosen");
-      $card.find("div.answer").hide();
-      $card.removeClass("chosen");
-      $card.addClass("played");
-      $card.addClass("disabled");
-      $playCards.not($card).removeClass("disabled");
       $counter.addClass("disabled");
+      $card.find("div.answer").hide();
+      $card.removeClass("chosen").addClass("played disabled");
+      $playCards.not($card).removeClass("disabled");
     }
   });
 
