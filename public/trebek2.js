@@ -9,6 +9,12 @@ $(".card").not(".cat-card").on('click', function(){
     var $this = $(this);
     $this.find(".answer").show();
     $this.find(".question").hide();
+    $(".chosen").on('click', function() {
+      var $this = $(this);
+      $this.find(".answer").hide();
+      $this.addClass("played");
+      $(".card").not(".cat-card").not($this).removeClass("disabled");
+    });
   });
 });
 
