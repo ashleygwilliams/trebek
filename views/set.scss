@@ -39,6 +39,10 @@
   height: 100px;
   width: 150px;
   border-radius: 10px;
+
+  &.selected {
+    outline: red solid thick;
+  }
 }
 
 .wrapper {
@@ -55,10 +59,6 @@
   width: 33px;
   height: 55px;
   display: inline-block;
-}
-
-.selected {
-  background-color: gray;
 }
 
 .button, .card {
