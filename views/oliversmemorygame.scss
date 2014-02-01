@@ -1,0 +1,37 @@
+
+
+@mixin border-radius($size) {
+  -webkit-border-radius: $size;
+     -moz-border-radius: $size;
+          border-radius: $size;
+}
+
+.col5 {
+  width: 20%;
+  display: inline-block;
+}
+
+.mem_card {
+  height: 25%;
+  border: 1px solid black;
+
+  .points {
+    display: none;
+  }
+
+  &.two {
+    background-color: lightskyblue;
+  }
+
+  &.three {
+    background-color: lightgreen;
+  }
+
+  &.four {
+    background-color: lightsalmon;
+  } 
+
+  &.backside {
+    background-color: black;
+  }
+}
