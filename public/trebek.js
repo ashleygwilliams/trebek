@@ -52,7 +52,7 @@ $(document).ready(function(){
       if(!$(this).hasClass("disabled")){
         var currentScore = parseInt($(this).parent().find("h2").text());
         $(this).parent().find("h2").text(currentScore + points);
-        $("button").addClass("disabled");
+        $(".player button").addClass("disabled");
       }
       event.preventDefault();
     });
