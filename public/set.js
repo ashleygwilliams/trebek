@@ -36,10 +36,14 @@ function isASet(cards) {
   return check();
 
   function check() {
-    if (jQuery.unique(numbers).length === 2 || jQuery.unique(shapes).length === 2 || jQuery.unique(shades).length === 2 || jQuery.unique(colors).length === 2) {
+    if (twoOfOne(numbers) || twoOfOne(shapes) || twoOfOne(shades) || twoOfOne(colors)) {
       return false;
     } else {
       return true;
     }
+  }
+
+  function twoOfOne(array) {
+    return (jQuery.unique(array).length === 2)
   }
 }
