@@ -20,7 +20,7 @@
 
 .container {
   width: 100%;
-  margin: 0 auto;
+  margin: 20px auto;
   text-align: center;
 }
 
@@ -59,4 +59,8 @@
 
 .selected {
   background-color: gray;
+}
+
+.button, .card {
+  cursor: pointer;
 }

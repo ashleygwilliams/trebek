@@ -1,5 +1,6 @@
 $(document).ready(function() {
   var $card = $(".card");
+  var $button = $(".button");
 
   $card.on("click", function() {
     var $this = $(this);
@@ -16,6 +17,10 @@ $(document).ready(function() {
       }
       $card.removeClass("selected");
     }
+  });
+
+  $button.on("click", function() {
+    location.reload();
   });
 });
 
@@ -44,6 +49,6 @@ function isASet(cards) {
   }
 
   function twoOfOne(array) {
-    return (jQuery.unique(array).length === 2)
+    return (jQuery.unique(array).length === 2);
   }
 }
