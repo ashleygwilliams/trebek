@@ -38,6 +38,12 @@ class Gambit < Sinatra::Application
     haml :"#{params[:type]}"
   end
 
+  # get "/games/students/set/set" do
+  #   deck = Deck.new("data/set.yml")
+  #   @cards = deck.cards
+  #   haml :set2
+  # end
+
   get "/games/students/:type/:deck_file" do
     deck = Deck.new("data/#{params[:deck_file]}.yml")
     @cards = deck.cards
