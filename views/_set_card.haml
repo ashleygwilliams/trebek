@@ -1,0 +1,4 @@
+.col3.card{data: {number: @card.number, shape: @card.shape, shade: @card.shade, color: @card.color}}
+  .wrapper
+    - @card.number.times do
+      .shape{style: "background-position: #{@card.width}px #{@card.height}px"}

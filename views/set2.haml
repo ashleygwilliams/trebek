@@ -1,0 +1,9 @@
+%h1 set
+.board
+  - @cards.sample(12).each_slice(3) do |slice|
+    .row
+      - slice.each do |card|
+        = partial :set_card, @card=card
+
+%script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+%script{:src=>"/set.js"}

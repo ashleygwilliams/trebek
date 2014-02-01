@@ -1,0 +1,62 @@
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.row {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.col3 {
+  width: 20%;
+  display: inline-block;
+}
+
+.card {
+  margin: 20px;
+  height: 100px;
+  width: 150px;
+  border-radius: 10px;
+}
+
+.wrapper {
+  // margin: auto;
+  width: 100%;
+  height: 100%;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.shape {
+  background-image: url('/img/set/cards.png');
+  margin-top: 22px;
+  width: 33px;
+  height: 55px;
+  display: inline-block;
+}
+
+.selected {
+  background-color: gray;
+}
