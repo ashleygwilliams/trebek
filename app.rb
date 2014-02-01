@@ -16,6 +16,10 @@ class Gambit < Sinatra::Application
     scss :trebek
   end
 
+  get "/set.css" do
+    scss :set
+  end
+
   get "/" do
     haml :index
   end
