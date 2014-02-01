@@ -42,6 +42,7 @@ class Gambit < Sinatra::Application
   #   deck = Deck.new("data/set.yml")
   #   @cards = deck.cards
   #   haml :set2
+  # => this was only put here in case i needed to do server-side logic
   # end
 
   get "/games/students/:type/:deck_file" do

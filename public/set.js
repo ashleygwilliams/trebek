@@ -20,8 +20,6 @@ $(document).ready(function() {
 });
 
 function isASet(cards) {
-  // collect card data attributes and put into arrays and uniq. if length of any is 2, it is not a set.
-
   var numbers = [];
   var shapes = [];
   var shades = [];
