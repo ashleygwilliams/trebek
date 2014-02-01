@@ -4,18 +4,18 @@ $(document).ready(function() {
 
   $card.on("click", function() {
     var $this = $(this);
-    var $selected;
+    var $chosen;
 
-    $this.toggleClass("selected");
-    $selected = $(".selected");
+    $this.toggleClass("chosen");
+    $chosen = $(".chosen");
 
-    if ($selected.length === 3) {
-      if (isASet($selected)) {
+    if ($chosen.length === 3) {
+      if (isASet($chosen)) {
         alert("SET!");
       } else {
         alert("Not a set.")
       }
-      $card.removeClass("selected");
+      $card.removeClass("chosen");
     }
   });
 
