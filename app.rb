@@ -12,6 +12,10 @@ class Gambit < Sinatra::Application
     set :public_folder, 'public'
   end
 
+  get "/olivers_memory_game.css" do
+    scss :olivers_memory_game
+  end
+
   get "/styles.css" do
     scss :trebek
   end

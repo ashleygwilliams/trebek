@@ -30,8 +30,7 @@ $(document).ready(function() {
         alert("Please change the score of whoever guessed correctly!");
         return false
       }
-      $this.removeClass("chosen");
-      $this.addClass("played");
+      $this.removeClass("chosen").addClass("played");;
       $notChosen.removeClass("disabled");
       $answer.toggle();
       $buttons.addClass("disabled");
