@@ -5,7 +5,8 @@ Array.prototype.each_slice = function (size, callback){
 };
 
 $(document).ready(function() {
-  var $card = $(".card");
+  var $card = $("div.card");
+  var $visible = $(".board div.card");
   var $button = $(".button");
 
   $card.on("click", function() {
@@ -17,11 +18,15 @@ $(document).ready(function() {
 
     if ($chosen.length === 3) {
       if (isASet($chosen)) {
-        alert("SET!");
+        $chosen.fadeOut("slow", function(){
+          $(this).replaceWith($(".hidden .card").first());
+          $chosen.fadeIn("slow");
+        });
+
       } else {
         alert("Not a set.")
+        $chosen.removeClass("chosen");
       }
-      $card.removeClass("chosen");
     }
   });
 

@@ -47,7 +47,7 @@ class Gambit < Sinatra::Application
 
   get "/games/students/:type/:deck_file" do
     deck = Deck.new("data/#{params[:deck_file]}.yml")
-    @cards = deck.cards
+    @cards = deck.cards.shuffle
     haml :"#{params[:type]}2"
   end
 
