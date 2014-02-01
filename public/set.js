@@ -1,3 +1,9 @@
+Array.prototype.each_slice = function (size, callback){
+  for (var i = 0, l = this.length; i < l; i += size){
+    callback.call(this, this.slice(i, i + size));
+  }
+};
+
 $(document).ready(function() {
   var $card = $(".card");
   var $button = $(".button");
@@ -38,17 +44,13 @@ function isASet(cards) {
     colors.push($this.data("color"));
   });
 
-  return check();
-
-  function check() {
-    if (twoOfOne(numbers) || twoOfOne(shapes) || twoOfOne(shades) || twoOfOne(colors)) {
-      return false;
-    } else {
-      return true;
-    }
+  if (twoOfOne(numbers) || twoOfOne(shapes) || twoOfOne(shades) || twoOfOne(colors)) {
+    return false;
+  } else {
+    return true;
   }
+}
 
-  function twoOfOne(array) {
-    return (jQuery.unique(array).length === 2);
-  }
+function twoOfOne(array) {
+  return (jQuery.unique(array).length === 2);
 }
