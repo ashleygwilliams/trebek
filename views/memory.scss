@@ -1,16 +1,16 @@
-/* change value to faceDown and question to faceUp */
-.value img {
+/* change faceDown to faceDown and question to faceUp */
+.faceDown img {
   width: 75%;
 }
-.question img {
+.faceUp img {
   width: 35%;
   margin: 0;
 }
-.question {
-  display: none; /* hide question and answer */
+.faceUp, .num {
+  display: none; /* hide faceUp and answer */
   font-size: 14.5px;
 }
-.value, .question {
+.faceDown, .faceUp {
   width: 100%;
   text-align: center;
   position: absolute;
@@ -18,6 +18,6 @@
   color: white;
   font-weight: 700;
 }
-.value, {
+.faceDown, {
   font-size: 30px;
 }

@@ -1,6 +1,11 @@
 / change value to faceDown and question to faceUp
 .card.col6
-  .value
+  .faceDown
     %img{src: @card.imgFaceDown}
-  .question
-    %img{src: @card.imgFaceUp}
+  .faceUp
+    - if @card.imgFaceUp
+      %img{src: @card.imgFaceUp}
+    - else
+      = @card.faceUp
+  .num
+    = @card.num
