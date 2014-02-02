@@ -20,12 +20,12 @@ $(document).ready(function() {
 
         $chosen.fadeOut("slow", function(){
           $(this).replaceWith($(".hidden .card").first());
-          $chosen.fadeIn("slow");
+          $chosen.fadeIn("slow", function(){
+            countSets();
+          });
         });
 
-        countSets();
       } else {
-        alert("Not a set.")
         $chosen.removeClass("chosen");
       }
     }
@@ -42,14 +42,18 @@ $(document).ready(function() {
 
 function findSets() {
   var counter = 0;
+  var $cardsOnTable = $(".board div.card").not("chosen");
   
-  var set = jQuery.makeArray($(".board div.card"));
+  var set = jQuery.makeArray($cardsOnTable);
   var combinations = k_combinations(set, 3);
 
   for (var i = 0, combination; combination = combinations[i]; i++) {
-    if (isASet($(combination))) {counter++;}
+    if (isASet($(combination))) {
+      counter++;
+    }
   }
 
+  if (counter === 0 && $(".card").length < 13) { alert("You found all the sets in the deck!") }
   return counter;
 }
 
