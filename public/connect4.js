@@ -16,8 +16,8 @@ $(document).ready(function() {
         $this.removeClass("playable");
         $this.addClass("black");
       }
-      $player1.toggleClass("off");
-      $player2.toggleClass("off");
+
+      // make space above playable
       var string = $this.attr("class");
       var matches = string.match(/.+\s(c\d)\sr(\d)\s(.*)/);
       // find the column
@@ -28,10 +28,18 @@ $(document).ready(function() {
       $above.addClass("playable");
       $above.removeClass("disabled");
 
+      // check for a winner
+      if(winner?(Number(matches[1]), Number(matches[2]), matches[3])) {
+        // whichever player isn't off wins
+      }
+
+      // change turns
+      $player1.toggleClass("off");
+      $player2.toggleClass("off");
     }
   });
 
-  function winner?(r, c, color) {
+  function winner?(c, r, color) {
     var ne = 1;
     var nw = 1;
     var s = 1;
