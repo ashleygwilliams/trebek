@@ -40,6 +40,16 @@ class Gambit < Sinatra::Application
     haml :"#{params[:type]}2"
   end
 
+  # get "/games/students/:type/:deckfile" do
+    # 1. create view
+      # haml :memory2
+    # 2. create your yml
+      # e.g. memory_game.yml
+        # - img: /url/pic.png
+              #  name: lion
+    # 3. make your js file (just like the jeapordy one)
+  # end
+
   get "/decks/:deck_file" do
     deck = Deck.new("data/#{params[:deck_file]}.yml")
     @cards = deck.cards
