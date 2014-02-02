@@ -1,8 +1,7 @@
 %h1 connect four
 .board
   - @cards.each do |card|
-    %div{:class=>"card col7 #{card.column} #{card.row}"}
-      / = partial :connect4, @card=card
+    %div{:class=>"card col7 #{card.column} #{card.row} #{card.start}"}
 %footer
   %div
   powered by gambit and trebek, (c)2014 ashley williams
