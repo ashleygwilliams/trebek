@@ -31,7 +31,6 @@ $(document).ready(function() {
 
   $button.on("click", function() {
     shuffleCards();
-    // location.reload();
   });
 
   function countSets() {
@@ -44,15 +43,22 @@ $(document).ready(function() {
   }
 
   function shuffleCards() {
-    var $cardsOnTable = $(".board div.card");
-    var $newCards = $(".hidden div.card").slice(0, 13);
+    var $hiddenCards = $(".hidden div.card");
+    if ($hiddenCards.length <= 12) {
+      $hiddenCards.slice(0, 3).wrapAll("<div class='row'></div>");
+      var $rows = $(".row");
+      $rows.last().insertAfter($rows.eq(-2));
+    } else {
+      var $cardsOnTable = $(".board div.card");
+      var $newCards = $hiddenCards.slice(0, 13);
 
-    for (var i = 0; i < 13; i++) {
-      var $oldCard = $cardsOnTable.eq(i);
-      var $newCard = $newCards.eq(i);
-      
-      $newCard.insertAfter($oldCard);
-      $oldCard.insertAfter($(".hidden div.card").last());
+      for (var i = 0; i < 13; i++) {
+        var $oldCard = $cardsOnTable.eq(i);
+        var $newCard = $newCards.eq(i);
+        
+        $newCard.insertAfter($oldCard);
+        $oldCard.insertAfter($(".hidden div.card").last());
+      }
     }
     countSets();
   }
@@ -100,9 +106,7 @@ function k_combinations(set, k) {
   var i, j, combs, head, tailcombs;
   
   if (k > set.length || k <= 0) { return []; }
-  
   if (k == set.length) { return [set]; }
-  
   if (k == 1) {
     combs = [];
     for (i = 0; i < set.length; i++) { combs.push([set[i]]); }
