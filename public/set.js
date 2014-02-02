@@ -4,6 +4,8 @@ $(document).ready(function() {
   var $setContainer = $(".score h3").last();
   var $button = $(".button");
 
+  countSets();
+
   $card.on("click", function() {
     var $this = $(this);
     var $chosen;
@@ -21,6 +23,7 @@ $(document).ready(function() {
           $chosen.fadeIn("slow");
         });
 
+        countSets();
       } else {
         alert("Not a set.")
         $chosen.removeClass("chosen");
@@ -31,20 +34,24 @@ $(document).ready(function() {
   $button.on("click", function() {
     location.reload();
   });
+
+  function countSets() {
+    $setContainer.text("sets on the table: " + findSets());
+  }
 });
 
-// function findSets() {
-//   var counter = 0;
+function findSets() {
+  var counter = 0;
   
-//   jQuery.makeArray($(".board div.card")).each_slice(3, function(slice) {
-//     console.log($(slice));
-//     if (isASet($(slice))) { counter += 1; }
-//   });
+  var set = jQuery.makeArray($(".board div.card"));
+  var combinations = k_combinations(set, 3);
 
-//   console.log(counter);
+  for (var i = 0, combination; combination = combinations[i]; i++) {
+    if (isASet($(combination))) {counter++;}
+  }
 
-//   return counter;
-// }
+  return counter;
+}
 
 function isASet(cards) {
   var numbers = [];
@@ -69,4 +76,36 @@ function isASet(cards) {
 
 function twoOfOne(array) {
   return (jQuery.unique(array).length === 2);
+}
+
+function k_combinations(set, k) {
+  //taken from https://gist.github.com/axelpale
+
+  var i, j, combs, head, tailcombs;
+  
+  if (k > set.length || k <= 0) {
+    return [];
+  }
+  
+  if (k == set.length) {
+    return [set];
+  }
+  
+  if (k == 1) {
+    combs = [];
+    for (i = 0; i < set.length; i++) {
+      combs.push([set[i]]);
+    }
+    return combs;
+  }
+  
+  combs = [];
+  for (i = 0; i < set.length - k + 1; i++) {
+    head = set.slice(i, i+1);
+    tailcombs = k_combinations(set.slice(i + 1), k - 1);
+    for (j = 0; j < tailcombs.length; j++) {
+      combs.push(head.concat(tailcombs[j]));
+    }
+  }
+  return combs;
 }
