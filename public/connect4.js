@@ -6,7 +6,9 @@ $(document).ready(function() {
   $cards.on('click', function(){
     var $this = $(this);
     if($this.hasClass("playable")) {
-      if($(".player2").hasClass("off")) {
+      var $player1 = $(".player1");
+      var $player2 = $(".player2");
+      if($player2.hasClass("off")) {
         $this.removeClass("playable");
         $this.addClass("red");
       }
@@ -14,11 +16,17 @@ $(document).ready(function() {
         $this.removeClass("playable");
         $this.addClass("black");
       }
-      $(".player1").toggleClass("off");
-      $(".player2").toggleClass("off");
-      $(".c1.r2").addClass("playable");
-      $(".c1.r2").removeClass("disabled");
-      // $this.attr("class")
+      $player1.toggleClass("off");
+      $player2.toggleClass("off");
+      var string = $this.attr("class");
+      var matches = string.match(/.+\s(c\d)\sr(\d).+/);
+      // find the column
+      var newC = "." + matches[1];
+      // find the row
+      var newR = ".r" + String(Number(matches[2]) + 1);
+      var $above = $(newC + newR);
+      $above.addClass("playable");
+      $above.removeClass("disabled");
     }
   });
 
