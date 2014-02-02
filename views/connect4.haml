@@ -1,9 +1,5 @@
 %h1 an album cover
 .board
-  - @cards.collect { |card| card.column }.uniq!.each do |column|
-    .card.col7.cat-card
-      .cat
-        = column
   - @cards.each do |card|
     .card.col7
 = partial :scoreboard
