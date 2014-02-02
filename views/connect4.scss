@@ -25,16 +25,6 @@ body {
   display: inline-block;
 }
 
-.col3 {
-  width: 33%;
-  display: inline-block;
-}
-
-.col2 {
-  width: 50%;
-  display: inline-block;
-}
-
 /* layout components */
 footer {
   position: fixed;
@@ -72,50 +62,11 @@ h1 {
   &.chosen {
     border: 2.5px solid yellow;
   }
-  &.played {
-    border: 2.5px solid gray;
-    background: gray url("/img/trebek\-small.png") no-repeat center;
-  }
   &.disabled{
     background-color: gray;
     color: #666666;
   }
 
-}
-
-.scoreboard {
-  width: 80%;
-  margin: auto;
-  .player, .score {
-    display: inline-block;
-  }
-  .user {
-    h2 {
-      margin: 0;
-    }
-    img {
-      background-color: rgba(255,255,255,0.3);
-      border: 1px white solid;
-      padding: 10px;
-    }
-  }
-
-  button {
-    @include border-radius(10px);
-
-    border: none;
-    background-color: white;
-    color: black;
-    font-size: 20px;
-    font-weight: 900;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    &.disabled{
-      background-color: gray;
-      color: #666666;
-    }
-  }
 }
 
 .board {
