@@ -13,10 +13,21 @@
 
 .mem_card {
   height: 25%;
+  position: relative;
   border: 1px solid black;
 
   .points {
     display: none;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 27.5px;
+    color: white;
+    font-weight: 700;
+  }
+
+  &.played {
+    display:none;
   }
 
   &.two {
