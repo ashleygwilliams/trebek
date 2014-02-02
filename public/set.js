@@ -30,7 +30,8 @@ $(document).ready(function() {
   });
 
   $button.on("click", function() {
-    location.reload();
+    shuffleCards();
+    // location.reload();
   });
 
   function countSets() {
@@ -40,6 +41,20 @@ $(document).ready(function() {
     } else { 
       $setContainer.text("sets on the table: " + sets); 
     }
+  }
+
+  function shuffleCards() {
+    var $cardsOnTable = $(".board div.card");
+    var $newCards = $(".hidden div.card").slice(0, 13);
+
+    for (var i = 0; i < 13; i++) {
+      var $oldCard = $cardsOnTable.eq(i);
+      var $newCard = $newCards.eq(i);
+      
+      $newCard.insertAfter($oldCard);
+      $oldCard.insertAfter($(".hidden div.card").last());
+    }
+    countSets();
   }
 });
 
@@ -60,12 +75,10 @@ function findSets() {
 }
 
 function isASet(cards) {
-  var firstCard = cards.eq(0), secondCard = cards.eq(1), thirdCard = cards.eq(2); 
-
-  var numbers = [firstCard.data("number"), secondCard.data("number"), thirdCard.data("number")];
-  var shapes = [firstCard.data("shape"), secondCard.data("shape"), thirdCard.data("shape")];
-  var shades = [firstCard.data("shade"), secondCard.data("shade"), thirdCard.data("shade")];
-  var colors = [firstCard.data("color"), secondCard.data("color"), thirdCard.data("color")];
+  var numbers = mapTraits(cards, "number");
+  var shapes = mapTraits(cards, "shape");
+  var shades = mapTraits(cards, "shade");
+  var colors = mapTraits(cards, "color");
 
   if (twoOfOne(numbers) || twoOfOne(shapes) || twoOfOne(shades) || twoOfOne(colors)) {
     return false;
@@ -78,24 +91,21 @@ function twoOfOne(array) {
   return (jQuery.unique(array).length === 2);
 }
 
+function mapTraits(collection, trait) {
+  return collection.map(function() { return $(this).data(trait); });
+}
+
 function k_combinations(set, k) {
   //taken from https://gist.github.com/axelpale
-
   var i, j, combs, head, tailcombs;
   
-  if (k > set.length || k <= 0) {
-    return [];
-  }
+  if (k > set.length || k <= 0) { return []; }
   
-  if (k == set.length) {
-    return [set];
-  }
+  if (k == set.length) { return [set]; }
   
   if (k == 1) {
     combs = [];
-    for (i = 0; i < set.length; i++) {
-      combs.push([set[i]]);
-    }
+    for (i = 0; i < set.length; i++) { combs.push([set[i]]); }
     return combs;
   }
   
@@ -103,9 +113,7 @@ function k_combinations(set, k) {
   for (i = 0; i < set.length - k + 1; i++) {
     head = set.slice(i, i+1);
     tailcombs = k_combinations(set.slice(i + 1), k - 1);
-    for (j = 0; j < tailcombs.length; j++) {
-      combs.push(head.concat(tailcombs[j]));
-    }
+    for (j = 0; j < tailcombs.length; j++) { combs.push(head.concat(tailcombs[j])); }
   }
   return combs;
 }
