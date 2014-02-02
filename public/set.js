@@ -20,8 +20,8 @@ $(document).ready(function() {
 
         $chosen.fadeOut("slow", function(){
           $(this).replaceWith($(".hidden .card").first());
-          $chosen.fadeIn("slow");
           countSets();
+          $chosen.fadeIn("slow");
         });
 
       } else {
@@ -35,10 +35,7 @@ $(document).ready(function() {
   });
 
   function countSets() {
-    $setContainer.fadeOut("slow", function() {
-      $setContainer.text("sets on the table: " + findSets());
-      $setContainer.fadeIn();
-    });
+    $setContainer.text("sets on the table: " + findSets());
   }
 });
 
