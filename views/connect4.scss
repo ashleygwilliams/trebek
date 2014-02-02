@@ -15,7 +15,7 @@ body {
 
 /* grid */
 .container {
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
 }
@@ -66,10 +66,22 @@ h1 {
     background-color: gray;
     color: #666666;
   }
+  &.playable{
+    background-color: gray;
+    &:hover{
+      background-color: gainsboro;
+    }
+  }
+  &.red{
+    background-color: crimson;
+  }
+  &.black {
+    background-color: black;
+  }
 
 }
 
 .board {
-  width: 80%;
+  width: 900px;
   margin: auto;
 }
