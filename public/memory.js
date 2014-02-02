@@ -16,12 +16,12 @@ $(document).ready(function(){
         if ($otherCard.find(".question").text() == $this.find(".question").text()) {
           setTimeout(function(){
             $this.removeClass("chosen");
-            $this.addClass("played");
+            $this.addClass("turnedOver");
             $otherCard.removeClass("chosen");
-            $otherCard.addClass("played");
+            $otherCard.addClass("turnedOver");
           }, 0000);
           // all cards are turned over
-          if ($(".card.played").length == $(".card").length) {
+          if ($(".card.turnedOver").length == $cards.length) {
             console.log("YOU WON");
           };
         // if their faces are not the same

@@ -1,3 +1,23 @@
+/* change value to faceDown and question to faceUp */
 .value img {
   width: 75%;
+}
+.question img {
+  width: 35%;
+  margin: 0;
+}
+.question {
+  display: none; /* hide question and answer */
+  font-size: 14.5px;
+}
+.value, .question {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 27.5px;
+  color: white;
+  font-weight: 700;
+}
+.value, {
+  font-size: 30px;
 }
