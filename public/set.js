@@ -1,12 +1,7 @@
-Array.prototype.each_slice = function (size, callback){
-  for (var i = 0, l = this.length; i < l; i += size){
-    callback.call(this, this.slice(i, i + size));
-  }
-};
-
 $(document).ready(function() {
   var $card = $("div.card");
-  var $visible = $(".board div.card");
+  var $scoreContainer = $(".score h3").first();
+  var $setContainer = $(".score h3").last();
   var $button = $(".button");
 
   $card.on("click", function() {
@@ -18,6 +13,9 @@ $(document).ready(function() {
 
     if ($chosen.length === 3) {
       if (isASet($chosen)) {
+        var score = parseInt($scoreContainer.text().match(/\d+/g));
+        $scoreContainer.text("cards remaining: " + (score - 3));
+
         $chosen.fadeOut("slow", function(){
           $(this).replaceWith($(".hidden .card").first());
           $chosen.fadeIn("slow");
@@ -34,6 +32,19 @@ $(document).ready(function() {
     location.reload();
   });
 });
+
+// function findSets() {
+//   var counter = 0;
+  
+//   jQuery.makeArray($(".board div.card")).each_slice(3, function(slice) {
+//     console.log($(slice));
+//     if (isASet($(slice))) { counter += 1; }
+//   });
+
+//   console.log(counter);
+
+//   return counter;
+// }
 
 function isASet(cards) {
   var numbers = [];

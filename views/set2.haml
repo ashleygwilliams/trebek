@@ -1,4 +1,8 @@
 %h1 set
+
+.score
+  %h3 cards remaining: 81
+
 .board
   - @cards[0..11].each_slice(3) do |slice|
     .row
@@ -6,7 +10,7 @@
         = partial :set_card, @card=card
 
 .button
-  Reshuffle deck
+  %h3 Reshuffle deck
 
 .deck.hidden
   - @cards[12..80].shuffle.each do |card|
