@@ -2,6 +2,7 @@
 .board
   - @cards.each do |card|
     .card.col7
+      = partial :connect4, @card=card
 = partial :scoreboard
 %footer
   %div
