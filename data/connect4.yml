@@ -22,6 +22,10 @@
   category: cat6
   question: lorem?
   answer: ipsum
+- value: 200
+  category: cat7
+  question: lorem?
+  answer: ipsum
 - value: 400
   category: cat1
   question: lorem?
@@ -46,6 +50,10 @@
   category: cat6
   question: lorem?
   answer: ipsum
+- value: 200
+  category: cat7
+  question: lorem?
+  answer: ipsum
 - value: 600
   category: cat1
   question: lorem?
@@ -91,6 +99,22 @@
   question: lorem?
   answer: ipsum
 - value: 800
+  category: cat1
+  question: lorem?
+  answer: ipsum
+- value: 1000
+  category: cat1
+  question: lorem?
+  answer: ipsum
+- value: 1000
+  category: cat1
+  question: lorem?
+  answer: ipsum
+- value: 1000
+  category: cat1
+  question: lorem?
+  answer: ipsum
+- value: 1000
   category: cat1
   question: lorem?
   answer: ipsum

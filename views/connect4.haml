@@ -1,7 +1,7 @@
 %h1 an album cover
 .board
   - @cards.collect { |card| card.category }.uniq!.each do |category|
-    .card.col6.cat-card
+    .card.col7.cat-card
       .cat
         = category
   - @cards.each do |card|
