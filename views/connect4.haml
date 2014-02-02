@@ -1,9 +1,8 @@
 %h1 an album cover
 .board
   - @cards.each do |card|
-    .card.col7
-      = partial :connect4, @card=card
-= partial :scoreboard
+    %div{:class=>"card col7 #{card.column} #{card.row}"}
+      / = partial :connect4, @card=card
 %footer
   %div
   powered by gambit and trebek, (c)2014 ashley williams
