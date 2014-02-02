@@ -1,8 +1,10 @@
 class Card
-  attr_reader :category, :value, :question, :answer
 
   def initialize(data)
-    @category, @value, @question, @answer = data["category"], data["value"], data["question"], data["answer"];
+    data.keys.each do |key|
+       self.instance_variable_set(:"@#{key}", data[key])
+       self.class.send(:attr_reader, :"#{key}")
+     end
   end
 
 end

@@ -1,7 +1,8 @@
 class Game
 
-  def initialize(deck)
-
+  def initialize(name, deck)
+    @name = name
+    @deck = deck
   end
 
 end
