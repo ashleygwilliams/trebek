@@ -16,6 +16,10 @@ class Gambit < Sinatra::Application
     scss :trebek
   end
 
+  get "/memory.css" do
+    scss :memory
+  end
+
   get "/" do
     haml :index
   end
