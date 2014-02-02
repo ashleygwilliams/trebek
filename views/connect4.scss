@@ -39,6 +39,7 @@ footer {
   color: white;
   text-align: center;
   width: 100%;
+  z-index: -1;
   .players {
     position: fixed;
     bottom: 0;
@@ -70,9 +71,6 @@ h1 {
 
 
   /* card status */
-  &.chosen {
-    border: 2.5px solid yellow;
-  }
   &.disabled{
     background-color: gray;
     color: #666666;
