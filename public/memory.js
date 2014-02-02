@@ -19,7 +19,7 @@ $(document).ready(function(){
             $this.addClass("turnedOver");
             $otherCard.removeClass("chosen");
             $otherCard.addClass("turnedOver");
-          }, 0000);
+          }, 1000);
           // all cards are turned over
           if ($(".card.turnedOver").length == $cards.length) {
             console.log("YOU WON");
