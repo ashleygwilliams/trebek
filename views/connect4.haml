@@ -1,0 +1,14 @@
+%h1 an album cover
+.board
+  - @cards.collect { |card| card.category }.uniq!.each do |category|
+    .card.col6.cat-card
+      .cat
+        = category
+  - @cards.each do |card|
+    = partial :card, @card=card
+= partial :scoreboard
+%footer
+  %div
+  powered by gambit and trebek, (c)2014 ashley williams
+%script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+%script{:src=>"/connect4.js"}

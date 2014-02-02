@@ -1,0 +1,157 @@
+$flatiron-blue: #26c4ff;
+
+@import url(http://fonts.googleapis.com/css?family=Overlock:400,700,900,400italic,700italic,900italic);
+
+@mixin border-radius($size) {
+  -webkit-border-radius: $size;
+     -moz-border-radius: $size;
+          border-radius: $size;
+}
+
+body {
+  font-family: 'Overlock', 'Helvetica', 'Arial', sans-serif;
+  background: url(/img/shattered-island.gif);
+}
+
+/* grid */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.col6 {
+  width: 15%;
+  display: inline-block;
+}
+
+.col3 {
+  width: 33%;
+  display: inline-block;
+}
+
+.col2 {
+  width: 50%;
+  display: inline-block;
+}
+
+/* layout components */
+footer {
+  position: fixed;
+  bottom: 0;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+/* type */
+h1 {
+  color: white;
+  font-weight: 900;
+  font-size: 40px;
+}
+
+/* cards */
+.card {
+  @include border-radius(10px);
+
+  background-color: $flatiron-blue;
+  height: 90px;
+  border: 2.5px solid transparent;
+  position: relative;
+
+  /* events */
+  &:hover{
+    cursor: pointer;
+  }
+
+  /* card components */
+  .question, .answer {
+    display: none; /* hide question and answer */
+    font-size: 14.5px;
+  }
+  .value, .question, .answer, .cat {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 27.5px;
+    color: white;
+    font-weight: 700;
+  }
+  .value, .cat {
+    font-size: 30px;
+  }
+
+  .cat {
+    font-weight: 900;
+  }
+
+  /* card status */
+  &.chosen {
+    border: 2.5px solid yellow;
+  }
+  &.played {
+    border: 2.5px solid gray;
+    background: gray url("/img/trebek\-small.png") no-repeat center;
+  }
+  &.disabled{
+    background-color: gray;
+    color: #666666;
+  }
+
+}
+
+.cat-card {
+  background-color: dodgerblue;
+}
+
+/* jeopardy */
+.scoreboard-container {
+  height: 125px;
+  position: fixed;
+  bottom: 10px;
+  background: rgba(255,255,255,0.5);
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.scoreboard {
+  width: 80%;
+  margin: auto;
+  .player, .score {
+    display: inline-block;
+  }
+  .user {
+    h2 {
+      margin: 0;
+    }
+    img {
+      background-color: rgba(255,255,255,0.3);
+      border: 1px white solid;
+      padding: 10px;
+    }
+  }
+
+  button {
+    @include border-radius(10px);
+
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    font-weight: 900;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    &.disabled{
+      background-color: gray;
+      color: #666666;
+    }
+  }
+}
+
+.board {
+  width: 80%;
+  margin: auto;
+}
