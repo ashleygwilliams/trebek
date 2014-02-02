@@ -8,6 +8,12 @@ $flatiron-blue: #26c4ff;
           border-radius: $size;
 }
 
+@mixin circle($size) {
+  @include border-radius($size);
+  height: $size;
+  width: $size;
+}
+
 body {
   font-family: 'Overlock', 'Helvetica', 'Arial', sans-serif;
   background: url(/img/shattered-island.gif);
@@ -43,11 +49,8 @@ h1 {
 
 /* cards */
 .card {
-  @include border-radius(100px);
-
-  background-color: $flatiron-blue;
-  height: 100px;
-  width: 100px;
+  @include circle(100px);
+  
   margin: 10px;
   border: 2.5px solid transparent;
   position: relative;
@@ -84,4 +87,9 @@ h1 {
 .board {
   width: 900px;
   margin: auto;
+}
+
+.player {
+  width: 150px;
+  height: 150px;
 }
