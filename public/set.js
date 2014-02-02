@@ -36,7 +36,7 @@ $(document).ready(function() {
   function countSets() {
     var sets = findSets();
     if (sets === 0 && $(".card").length < 13) { 
-      $setContainer.text("You found all the sets in the deck!"); 
+      $setContainer.text("You found all the sets in the deck!");
     } else { 
       $setContainer.text("sets on the table: " + sets); 
     }
@@ -60,10 +60,12 @@ function findSets() {
 }
 
 function isASet(cards) {
-  var numbers = [cards.eq(0).data("number"), cards.eq(1).data("number"), cards.eq(2).data("number")];
-  var shapes = [cards.eq(0).data("shape"), cards.eq(1).data("shape"), cards.eq(2).data("shape")];
-  var shades = [cards.eq(0).data("shade"), cards.eq(1).data("shade"), cards.eq(2).data("shade")];
-  var colors = [cards.eq(0).data("color"), cards.eq(1).data("color"), cards.eq(2).data("color")];
+  var firstCard = cards.eq(0), secondCard = cards.eq(1), thirdCard = cards.eq(2); 
+
+  var numbers = [firstCard.data("number"), secondCard.data("number"), thirdCard.data("number")];
+  var shapes = [firstCard.data("shape"), secondCard.data("shape"), thirdCard.data("shape")];
+  var shades = [firstCard.data("shade"), secondCard.data("shade"), thirdCard.data("shade")];
+  var colors = [firstCard.data("color"), secondCard.data("color"), thirdCard.data("color")];
 
   if (twoOfOne(numbers) || twoOfOne(shapes) || twoOfOne(shades) || twoOfOne(colors)) {
     return false;

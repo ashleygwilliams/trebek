@@ -14,7 +14,7 @@
   %h3 Reshuffle deck
 
 .deck.hidden
-  - @cards[12..80].shuffle.each do |card|
+  - @cards[12..80].each do |card|
     = partial :set_card, @card=card
 
 %script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
