@@ -1,120 +1,122 @@
-- value: 200
+# change value t/img/memory/arrestedDevCover.pngmgFaceDown and question to imgFace Up
+# delete the others
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 200
+- value: /img/memory/arrestedDevCover.png
   category: cat2
   question: lorem?
   answer: ipsum
-- value: 200
+- value: /img/memory/arrestedDevCover.png
   category: cat3
   question: lorem?
   answer: ipsum
-- value: 200
+- value: /img/memory/arrestedDevCover.png
   category: cat4
   question: lorem?
   answer: ipsum
-- value: 200
+- value: /img/memory/arrestedDevCover.png
   category: cat5
   question: lorem?
   answer: ipsum
-- value: 200
+- value: /img/memory/arrestedDevCover.png
   category: cat6
   question: lorem?
   answer: ipsum
-- value: 400
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 400
+- value: /img/memory/arrestedDevCover.png
   category: cat2
   question: lorem?
   answer: ipsum
-- value: 400
+- value: /img/memory/arrestedDevCover.png
   category: cat3
   question: lorem?
   answer: ipsum
-- value: 400
+- value: /img/memory/arrestedDevCover.png
   category: cat4
   question: lorem?
   answer: ipsum
-- value: 400
+- value: /img/memory/arrestedDevCover.png
   category: cat5
   question: lorem?
   answer: ipsum
-- value: 400
+- value: /img/memory/arrestedDevCover.png
   category: cat6
   question: lorem?
   answer: ipsum
-- value: 600
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 600
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 600
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 600
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 600
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 600
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 800
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 800
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 800
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 800
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 800
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 800
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 1000
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 1000
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 1000
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 1000
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 1000
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
-- value: 1000
+- value: /img/memory/arrestedDevCover.png
   category: cat1
   question: lorem?
   answer: ipsum
