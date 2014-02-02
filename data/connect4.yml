@@ -1,84 +1,126 @@
 - column: c1
   row: r6
+  start: disabled
 - column: c2
   row: r6
+  start: disabled
 - column: c3
   row: r6
+  start: disabled
 - column: c4
   row: r6
+  start: disabled
 - column: c5
   row: r6
+  start: disabled
 - column: c6
   row: r6
+  start: disabled
 - column: c7
   row: r6
+  start: disabled
 - column: c1
   row: r5
+  start: disabled
 - column: c2
   row: r5
+  start: disabled
 - column: c3
   row: r5
+  start: disabled
 - column: c4
   row: r5
+  start: disabled
 - column: c5
   row: r5
+  start: disabled
 - column: c6
   row: r5
+  start: disabled
 - column: c7
   row: r5
+  start: disabled
 - column: c1
   row: r4
+  start: disabled
 - column: c2
   row: r4
+  start: disabled
 - column: c3
   row: r4
+  start: disabled
 - column: c4
   row: r4
+  start: disabled
 - column: c5
   row: r4
+  start: disabled
 - column: c6
   row: r4
+  start: disabled
 - column: c7
   row: r4
+  start: disabled
 - column: c1
   row: r3
+  start: disabled
 - column: c2
   row: r3
+  start: disabled
 - column: c3
   row: r3
+  start: disabled
 - column: c4
   row: r3
+  start: disabled
 - column: c5
   row: r3
+  start: disabled
 - column: c6
   row: r3
+  start: disabled
 - column: c7
   row: r3
+  start: disabled
 - column: c1
   row: r2
+  start: disabled
 - column: c2
   row: r2
+  start: disabled
 - column: c3
   row: r2
+  start: disabled
 - column: c4
   row: r2
+  start: disabled
 - column: c5
   row: r2
+  start: disabled
 - column: c6
   row: r2
+  start: disabled
 - column: c7
   row: r2
+  start: disabled
 - column: c1
   row: r1
+  start: playable
 - column: c2
   row: r1
+  start: playable
 - column: c3
   row: r1
+  start: playable
 - column: c4
   row: r1
+  start: playable
 - column: c5
   row: r1
+  start: playable
 - column: c6
   row: r1
+  start: playable
 - column: c7
   row: r1
+  start: playable
