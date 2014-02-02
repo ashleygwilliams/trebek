@@ -1,1 +1,9 @@
-%h1 Hi.
+%h1 Hi. This is all about memory.
+.board
+  - @cards.each do |card|
+    = partial :card, @card=card
+%footer
+  (c)2014 sarah ransohoff, with help and <3 from ashley williams
+
+%script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+%script{:src=>"/memory.js"}
