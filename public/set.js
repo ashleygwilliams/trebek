@@ -21,9 +21,8 @@ $(document).ready(function() {
         $chosen.fadeOut("slow", function(){
           $(this).replaceWith($(".hidden .card").first());
           countSets();
-          $chosen.fadeIn("slow");
+          $(this).fadeIn("slow");
         });
-
       } else {
         $chosen.removeClass("chosen");
       }
@@ -35,13 +34,18 @@ $(document).ready(function() {
   });
 
   function countSets() {
-    $setContainer.text("sets on the table: " + findSets());
+    var sets = findSets();
+    if (sets === 0 && $(".card").length < 13) { 
+      $setContainer.text("You found all the sets in the deck!"); 
+    } else { 
+      $setContainer.text("sets on the table: " + sets); 
+    }
   }
 });
 
 function findSets() {
   var counter = 0;
-  var $cardsOnTable = $(".board div.card").not("chosen");
+  var $cardsOnTable = $(".board div.card").not(".chosen");
   
   var set = jQuery.makeArray($cardsOnTable);
   var combinations = k_combinations(set, 3);
@@ -52,23 +56,14 @@ function findSets() {
     }
   }
 
-  if (counter === 0 && $(".card").length < 13) { alert("You found all the sets in the deck!") }
   return counter;
 }
 
 function isASet(cards) {
-  var numbers = [];
-  var shapes = [];
-  var shades = [];
-  var colors = [];
-
-  cards.each(function () {
-    var $this = $(this);
-    numbers.push($this.data("number"));
-    shapes.push($this.data("shape"));
-    shades.push($this.data("shade"));
-    colors.push($this.data("color"));
-  });
+  var numbers = [cards.eq(0).data("number"), cards.eq(1).data("number"), cards.eq(2).data("number")];
+  var shapes = [cards.eq(0).data("shape"), cards.eq(1).data("shape"), cards.eq(2).data("shape")];
+  var shades = [cards.eq(0).data("shade"), cards.eq(1).data("shade"), cards.eq(2).data("shade")];
+  var colors = [cards.eq(0).data("color"), cards.eq(1).data("color"), cards.eq(2).data("color")];
 
   if (twoOfOne(numbers) || twoOfOne(shapes) || twoOfOne(shades) || twoOfOne(colors)) {
     return false;
