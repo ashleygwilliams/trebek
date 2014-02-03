@@ -11,3 +11,8 @@
       -4.times do
         - @card=@deck.shift
         = partial :spider_card
+  .score
+    %h1 Score: 0
+  .reserve
+    -6.times do
+      .column.card
