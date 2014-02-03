@@ -2,7 +2,7 @@
 %h3 Match the images with their description.
 
 .board
-  - @cards.each do |card|
+  - @cards.shuffle.each do |card|
     = partial :memory_card, @card=card
 
 %footer
