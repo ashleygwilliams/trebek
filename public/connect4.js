@@ -30,8 +30,13 @@ $(document).ready(function() {
 
       // check for a winner
       if(isWinner(Number(matches[1]), Number(matches[2]), matches[3])) {
-        // whichever player isn't off wins
         $cards.addClass("gameOver");
+        if($player2.hasClass("off")) {
+          $("div.winner1").show();
+        }
+        else {
+          $("div.winner2").show();
+        }
       }
       else {
       // change turns
