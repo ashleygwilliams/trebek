@@ -46,78 +46,31 @@ $(document).ready(function() {
     }
   });
 
-  function isWinner(c, r, color) {
-    var ne = 1;
-    var nw = 1;
-    var s = 1;
-    var ew = 1;
-    if($(".c"+(c+1)+".r"+(r+1)).hasClass(color)) {
-      ne += 1;
-      if($(".c"+(c+2)+".r"+(r+2)).hasClass(color)) {
-        ne += 1;
-        if($(".c"+(c+3)+".r"+(r+3)).hasClass(color)) {
-          ne += 1;
-        }
+function check(col, row, color, direction) {
+  if($(".c"+col+".r"+row).hasClass(color)) {
+    direction += 1;
+    if($(".c"+col+".r"+row).hasClass(color)) {
+      direction += 1;
+      if($(".c"+col+".r"+row).hasClass(color)) {
+        direction += 1;
       }
-    }
-    if($(".c"+(c+1)+".r"+r).hasClass(color)) {
-      ew += 1;
-      if($(".c"+(c+2)+".r"+r).hasClass(color)) {
-        ew += 1;
-        if($(".c"+(c+3)+".r"+r).hasClass(color)) {
-          ew += 1;
-        }
-      }
-    }
-    if($(".c"+(c+1)+".r"+(r-1)).hasClass(color)) {
-      nw += 1;
-      if($(".c"+(c+2)+".r"+(r-2)).hasClass(color)) {
-        nw += 1;
-        if($(".c"+(c+3)+".r"+(r-3)).hasClass(color)) {
-          nw += 1;
-        }
-      }
-    }
-    if($(".c"+c+".r"+(r-1)).hasClass(color)) {
-      s += 1;
-      if($(".c"+c+".r"+(r-2)).hasClass(color)) {
-        s += 1;
-        if($(".c"+c+".r"+(r-3)).hasClass(color)) {
-          s += 1;
-        }
-      }
-    }
-    if($(".c"+(c-1)+".r"+(r-1)).hasClass(color)) {
-      ne += 1;
-      if($(".c"+(c-2)+".r"+(r-2)).hasClass(color)) {
-        ne += 1;
-        if($(".c"+(c-3)+".r"+(r-3)).hasClass(color)) {
-          ne += 1;
-        }
-      }
-    }
-    if($(".c"+(c-1)+".r"+r).hasClass(color)) {
-      ew += 1;
-      if($(".c"+(c-2)+".r"+r).hasClass(color)) {
-        ew += 1;
-        if($(".c"+(c-3)+".r"+r).hasClass(color)) {
-          ew += 1;
-        }
-      }
-    }
-    if($(".c"+(c-1)+".r"+(r+1)).hasClass(color)) {
-      nw += 1;
-      if($(".c"+(c-2)+".r"+(r+2)).hasClass(color)) {
-        nw += 1;
-        if($(".c"+(c-3)+".r"+(r+3)).hasClass(color)) {
-          nw += 1;
-        }
-      }
-    }
-    if(ne>=4 || ew>=4 || nw>=4 || s>=4) {
-      return true;
     }
   }
+}
 
+function isWinner(c, r, color) {
+  var ne = 1;
+  var nw = 1;
+  var s = 1;
+  var ew = 1;
+  check(c+1, r+1, color, ne);
+  check(c+1, r, color, ew);
+  check(c+1, r-1, color, nw);
+  check(c, r-1, color, s);
+  check(c-1, r-1, color, ne);
+  check(c-1, r, color, ew);
+  check(c-1, r+1, color, nw);
+  if(ne>=4 || ew>=4 || nw>=4 || s>=4) {
+    return true;
+  }
 });
-
