@@ -19,9 +19,9 @@ $(document).ready(function() {
 
       // make space above playable
       var string = $this.attr("class");
-      var matches = string.match(/.+\s(c\d)\sr(\d)\s(.*)/);
+      var matches = string.match(/.+\sc(\d)\sr(\d)\s(.*)/);
       // find the column
-      var newC = "." + matches[1];
+      var newC = ".c" + matches[1];
       // find the row
       var newR = ".r" + String(Number(matches[2]) + 1);
       var $above = $(newC + newR);
@@ -29,8 +29,9 @@ $(document).ready(function() {
       $above.removeClass("disabled");
 
       // check for a winner
-      if(winner?(Number(matches[1]), Number(matches[2]), matches[3])) {
+      if(isWinner(Number(matches[1]), Number(matches[2]), matches[3])) {
         // whichever player isn't off wins
+        
       }
 
       // change turns
@@ -39,7 +40,7 @@ $(document).ready(function() {
     }
   });
 
-  function winner?(c, r, color) {
+  function isWinner(c, r, color) {
     var ne = 1;
     var nw = 1;
     var s = 1;
@@ -107,7 +108,7 @@ $(document).ready(function() {
         }
       }
     }
-    if((ne || ew || nw || s) >= 3) {
+    if((ne || ew || nw || s) >= 4) {
       return true;
     }
   }
