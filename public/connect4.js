@@ -109,7 +109,7 @@ $(document).ready(function() {
         }
       }
     }
-    if((ne || ew || nw || s) >= 4) {
+    if(ne>=4 || ew>=4 || nw>=4 || s>=4) {
       return true;
     }
   }
