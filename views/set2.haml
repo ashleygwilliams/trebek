@@ -4,14 +4,14 @@
   %h3 cards remaining: 81
   %h3 
 
+.button
+  %h3 click to reshuffle deck
+
 .board
   - @cards[0..11].each_slice(3) do |slice|
     .row
       - slice.each do |card|
         = partial :set_card, @card=card
-
-.button
-  %h3 Reshuffle deck
 
 .deck.hidden
   - @cards[12..80].each do |card|

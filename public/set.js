@@ -32,8 +32,13 @@ $(document).ready(function() {
 
 function countSets() {
   var sets = findSets();
-  if (sets === 0 && $(".card").length < 13) { 
+  if (sets === 0) {
+    if ($(".card").length < 13)) { 
     $setContainer.text("You found all the sets in the deck!");
+  } else {
+    $setContainer.text("no sets on the table!"); 
+    $button.fadeIn();
+  }
   } else { 
     $setContainer.text("sets on the table: " + sets); 
   }
@@ -82,6 +87,8 @@ function removeSet(cards) {
 }
 
 function shuffleCards() {
+  $button.fadeOut();
+  
   var $hiddenCards = $(".hidden div.card");
   if ($hiddenCards.length <= 12) {
     $hiddenCards.slice(0, 3).wrapAll("<div class='row'></div>");
