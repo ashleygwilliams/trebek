@@ -1,5 +1,95 @@
+$flatiron-blue: #26c4ff;
+
+@import url(http://fonts.googleapis.com/css?family=Overlock:400,700,900,400italic,700italic,900italic);
+
+@mixin border-radius($size) {
+  -webkit-border-radius: $size;
+     -moz-border-radius: $size;
+          border-radius: $size;
+}
+
+body {
+  font-family: 'Overlock', 'Helvetica', 'Arial', sans-serif;
+  background: url(/img/shattered-island.gif);
+}
+
+/* grid */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .column {
   width: 8%;
   display: inline-block;
   vertical-align: top;
+  margin: 0 
+}
+
+/* layout components */
+.board {
+  width: 90%;
+  margin: auto;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+/* type */
+h1 {
+  color: white;
+  font-weight: 900;
+  font-size: 40px;
+}
+
+/* cards */
+.card {
+  @include border-radius(10px);
+
+  background-color: $flatiron-blue;
+  border: solid black 1px;
+  position: relative;
+  height: 100px;
+  margin-top: -30px;
+
+  /* card components */
+  .value {
+    display: none;
+  }
+
+  /* card states */
+  &.faceDown {
+    & .face, .value, .suit, .color {
+      display: none;
+    }
+  }
+
+  &.selected {
+    position: relative;
+    top: 10px;
+  }
+}
+
+.reserve {
+  width: 50%;
+  position: fixed;
+  bottom: 10px;
+  right: 0px;
+  & .card {
+    width: 14%;
+    margin: 0;
+  }
+}
+
+/* score */
+.score {
+  position: fixed;
+  bottom: 0px;
+  left: 20px;
 }
