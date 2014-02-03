@@ -1,0 +1,8 @@
+%form{:method=>"/games/jeopardy", :action=>"post"}
+  %label Game Name:
+  %input{:type=>"text", :name=>"name"}
+
+  %label Deck:
+  %input{:type=>"text", :name=>"deck_file"}
+
+  %button{:type=>"submit"} Create Game
