@@ -17,12 +17,7 @@ $(document).ready(function() {
       if (isASet($chosen)) {
         var score = parseInt($scoreContainer.text().match(/\d+/g));
         $scoreContainer.text("cards remaining: " + (score - 3));
-
-        $chosen.fadeOut("slow", function(){
-          $(this).replaceWith($(".hidden .card").first());
-          countSets();
-          $(this).fadeIn("slow");
-        });
+        $.when(removeSet($chosen)).done(countSets());
       } else {
         $chosen.removeClass("chosen");
       }
@@ -64,6 +59,7 @@ $(document).ready(function() {
   }
 });
 
+
 function findSets() {
   var counter = 0;
   var $cardsOnTable = $(".board div.card").not(".chosen");
@@ -72,9 +68,7 @@ function findSets() {
   var combinations = k_combinations(set, 3);
 
   for (var i = 0, combination; combination = combinations[i]; i++) {
-    if (isASet($(combination))) {
-      counter++;
-    }
+    if (isASet($(combination))) { counter++; }
   }
 
   return counter;
@@ -99,6 +93,13 @@ function twoOfOne(array) {
 
 function mapTraits(collection, trait) {
   return collection.map(function() { return $(this).data(trait); });
+}
+
+function removeSet(cards) {
+  cards.fadeOut("slow", function(){
+    $(this).replaceWith($(".hidden .card").first());
+    $(this).fadeIn("slow");
+  });
 }
 
 function k_combinations(set, k) {
