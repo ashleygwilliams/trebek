@@ -1,9 +1,8 @@
-var $card, $scoreContainer, $setContainer, $button;
+var $scoreContainer = $(".score h3").first();
+var $setContainer = $(".score h3").last();
 
 $(document).ready(function() {
-  $card = $("div.card");
-  $scoreContainer = $(".score h3").first();
-  $setContainer = $(".score h3").last();
+  var $card = $("div.card");
   $button = $(".button");
 
   countSets();
