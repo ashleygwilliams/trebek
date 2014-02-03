@@ -6,12 +6,17 @@ h3 {
   width: 75%;
 }
 .faceUp img {
-  width: 35%;
-  margin: 0;
+  width: 110%;
+  margin-left: -5px;
+  /*position: absolute;*/
 }
 .faceUp, .num {
   display: none; /* hide faceUp and answer */
   font-size: 14.5px;
+}
+.card .faceUp {
+  top: 0px;
+  overflow: hidden;
 }
 .faceDown, .faceUp {
   width: 100%;
