@@ -73,6 +73,7 @@ h1 {
   &.selected {
     position: relative;
     top: 10px;
+    border: solid red 1px;
   }
 }
 
