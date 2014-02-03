@@ -21,9 +21,10 @@ $(document).ready(function(){
             $otherCard.addClass("turnedOver");
           }, 1000);
           // all cards are turned over
+          // WHY DOESN'T THIS WORK
           if ($(".card.turnedOver").length == $cards.length) {
             console.log("YOU WON");
-          };
+          }
         // if their faces are not the same
         } else {
           setTimeout(function(){

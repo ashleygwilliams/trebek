@@ -16,6 +16,7 @@ h3 {
 }
 .card .faceUp {
   top: 0px;
+  /* WHY DOESN'T THIS WORK */
   overflow: hidden;
 }
 .faceDown, .faceUp {
