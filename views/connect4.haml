@@ -3,16 +3,15 @@
   - @cards.each do |card|
     %div{:class=>"card col7 #{card.column} #{card.row} #{card.start}"}
 
+.player.player1
+  %h1 player 1
+.winner1
+  %h1 PLAYER 1 WINS
+.winner2
+  %h1 PLAYER 2 WINS
+.player.player2.off
+  %h1 player 2
 %footer
-  .players
-    .player.player1
-      %h1 player 1
-    .winner1
-      %h1 PLAYER 1 WINS
-    .winner2
-      %h1 PLAYER 2 WINS
-    .player.player2.off
-      %h1 player 2
   powered by gambit and trebek, &copy;2014 ashley williams
 %script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
 %script{:src=>"/connect4.js"}
