@@ -64,6 +64,10 @@ h1 {
   border: 2.5px solid transparent;
   position: relative;
 
+  &.gameOver {
+    opacity: 0.5;
+  }
+
   /* events */
   &:hover{
     cursor: pointer;

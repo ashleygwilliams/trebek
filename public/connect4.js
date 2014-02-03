@@ -5,7 +5,7 @@ $(document).ready(function() {
 
   $cards.on('click', function(){
     var $this = $(this);
-    if($this.hasClass("playable")) {
+    if($this.hasClass("playable") && !$this.hasClass("gameOver")) {
       var $player1 = $(".player1");
       var $player2 = $(".player2");
       if($player2.hasClass("off")) {
@@ -31,12 +31,13 @@ $(document).ready(function() {
       // check for a winner
       if(isWinner(Number(matches[1]), Number(matches[2]), matches[3])) {
         // whichever player isn't off wins
-        
+        $cards.addClass("gameOver");
       }
-
+      else {
       // change turns
       $player1.toggleClass("off");
       $player2.toggleClass("off");
+      }
     }
   });
 
