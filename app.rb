@@ -13,7 +13,7 @@ class Gambit < Sinatra::Application
   end
 
   get "/styles.css" do
-    scss :trebek
+    scss :spider
   end
 
   get "/" do
