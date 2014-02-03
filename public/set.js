@@ -83,7 +83,6 @@ function removeSet(cards) {
 
 function shuffleCards() {
   var $hiddenCards = $(".hidden div.card");
-  $hiddenCards.shuffle();
   if ($hiddenCards.length <= 12) {
     $hiddenCards.slice(0, 3).wrapAll("<div class='row'></div>");
     var $rows = $(".row");
@@ -123,5 +122,3 @@ function k_combinations(set, k) {
   }
   return combs;
 }
-
-(function(d){d.fn.shuffle=function(c){c=[];return this.each(function(){c.push(d(this).clone(true))}).each(function(a,b){d(b).replaceWith(c[a=Math.floor(Math.random()*c.length)]);c.splice(a,1)})};d.shuffle=function(a){return d(a).shuffle()}})(jQuery);
