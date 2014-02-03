@@ -1,8 +1,10 @@
+var $card, $scoreContainer, $setContainer, $button;
+
 $(document).ready(function() {
-  var $card = $("div.card");
-  var $scoreContainer = $(".score h3").first();
-  var $setContainer = $(".score h3").last();
-  var $button = $(".button");
+  $card = $("div.card");
+  $scoreContainer = $(".score h3").first();
+  $setContainer = $(".score h3").last();
+  $button = $(".button");
 
   countSets();
 
@@ -27,38 +29,16 @@ $(document).ready(function() {
   $button.on("click", function() {
     shuffleCards();
   });
-
-  function countSets() {
-    var sets = findSets();
-    if (sets === 0 && $(".card").length < 13) { 
-      $setContainer.text("You found all the sets in the deck!");
-    } else { 
-      $setContainer.text("sets on the table: " + sets); 
-    }
-  }
-
-  function shuffleCards() {
-    var $hiddenCards = $(".hidden div.card");
-    if ($hiddenCards.length <= 12) {
-      $hiddenCards.slice(0, 3).wrapAll("<div class='row'></div>");
-      var $rows = $(".row");
-      $rows.last().insertAfter($rows.eq(-2));
-    } else {
-      var $cardsOnTable = $(".board div.card");
-      var $newCards = $hiddenCards.slice(0, 13);
-
-      for (var i = 0; i < 13; i++) {
-        var $oldCard = $cardsOnTable.eq(i);
-        var $newCard = $newCards.eq(i);
-        
-        $newCard.insertAfter($oldCard);
-        $oldCard.insertAfter($(".hidden div.card").last());
-      }
-    }
-    countSets();
-  }
 });
 
+function countSets() {
+  var sets = findSets();
+  if (sets === 0 && $(".card").length < 13) { 
+    $setContainer.text("You found all the sets in the deck!");
+  } else { 
+    $setContainer.text("sets on the table: " + sets); 
+  }
+}
 
 function findSets() {
   var counter = 0;
@@ -102,6 +82,28 @@ function removeSet(cards) {
   });
 }
 
+function shuffleCards() {
+  var $hiddenCards = $(".hidden div.card");
+  $hiddenCards.shuffle();
+  if ($hiddenCards.length <= 12) {
+    $hiddenCards.slice(0, 3).wrapAll("<div class='row'></div>");
+    var $rows = $(".row");
+    $rows.last().insertAfter($rows.eq(-2));
+  } else {
+    var $cardsOnTable = $(".board div.card");
+    var $newCards = $hiddenCards.slice(0, 13);
+
+    for (var i = 0; i < 13; i++) {
+      var $oldCard = $cardsOnTable.eq(i);
+      var $newCard = $newCards.eq(i);
+      
+      $newCard.insertAfter($oldCard);
+      $oldCard.insertAfter($(".hidden div.card").last());
+    }
+  }
+  countSets();
+}
+
 function k_combinations(set, k) {
   //taken from https://gist.github.com/axelpale
   var i, j, combs, head, tailcombs;
@@ -122,3 +124,5 @@ function k_combinations(set, k) {
   }
   return combs;
 }
+
+(function(d){d.fn.shuffle=function(c){c=[];return this.each(function(){c.push(d(this).clone(true))}).each(function(a,b){d(b).replaceWith(c[a=Math.floor(Math.random()*c.length)]);c.splice(a,1)})};d.shuffle=function(a){return d(a).shuffle()}})(jQuery);
