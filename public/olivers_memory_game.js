@@ -7,6 +7,79 @@ $(function() {
   var windowHeight = $(window).height(); 
   $(".container").css("height", windowHeight - windowHeight*0.23);
 
+  
+  
+  $(".mem_card").shuffle()
+
+  twoClicks = [];
+  threeClicks = [];
+  fourClicks = [];
+  clickCount = 0;
+  chances = 0;
+
+  $(".mem_card").on("click", function() {
+    $this = $(this)
+    $pointValue = $this.find(".points").text()
+    $this.removeClass("backside");
+    $this.find(".points").fadeIn("slow");
+    clickCount++ 
+
+    if(chances == 0) {
+      if($this.hasClass("two")) {
+        twoClicks.push($this);
+        chances = 2;
+      } else if ($this.hasClass("three")) {
+        threeClicks.push($this);
+        chances = 3; 
+      } else { // has class of 'four'
+        fourClicks.push($this);
+        chances = 4;
+      }
+    } else if(chances == 2) {
+      twoClicks.push($this);
+      if (twoClicks.length == 2) {  // if there are two clicks of type "two"
+        if (matchCards(twoClicks)) {
+
+        } else {
+          turnBackside(twoClicks);
+          twoClicks = [];
+        }
+      chances = 0;  // user gets sent back to initial state
+      }
+    } else if(chances == 3) {
+      threeClicks.push($this);
+      if (threeClicks.length == 3) {
+        if(matchCards(threeClicks)) {
+
+        } else {
+          turnBackside(threeClicks);
+          threeClicks = [];
+        }
+      chances = 0;
+      }
+    } else if(chances == 4) {
+      fourClicks.push($this);
+      if (fourClicks.length == 4) {
+        if (matchCards(fourClicks)) {
+
+        } else {
+          turnBackside(fourClicks);
+          fourClicks = [];
+        }
+      chances = 0;
+      }
+    }
+  });
+
+  function turnBackside(cardArray) {
+    setTimeout(function(){
+      addClass(cardArray, "backside");
+      for(i = 0; i < cardArray.length; i++) {
+        cardArray[i].find(".points").fadeOut(); 
+      }
+    }, 700)
+  }
+
   function checkPair(card1, card2) {
     return card1.hasClass("two") && card2.hasClass("two")
   }
@@ -18,81 +91,98 @@ $(function() {
   function checkQuadruplet(card1, card2, card3, card4) {
     return card1.hasClass("four") && card2.hasClass("four") && card3.hasClass("four") && card4.hasClass("four");
   }
-  
-  $(".mem_card").shuffle()
 
-  twoClicks = [];
-  threeClicks = [];
-  fourClicks = [];
-  clickCount = 0
-
-  $(".mem_card").on("click", function() {
-    $this = $(this)
-    clickCount++ 
-    $pointValue = $this.find(".points").text()
-
-    $this.removeClass("backside");
-    $this.find(".points").fadeIn("slow");
-
-    if(clickCount % 3 == 0 && clickCount != 0) {  // reset twoClicks matching array every three clicks
-        twoClicks = [];
+  function addClass(array, css_class) {
+    for(i = 0; i < array.length; i++) {
+      array[i].addClass(css_class);
     }
-    if(clickCount % 4 == 0 && clickCount != 0) {  // reset threeClicks matching array every four clicks
-        threeClicks = [];
-    }
-    if(clickCount % 5 == 0 && clickCount != 0) {  // reset fourClicks matching array every four clicks
-        fourClicks = [];
-    }
+  }
 
-    if($this.hasClass("two")) {
-      twoClicks.push($this);
-      chances = 2;
+  function matchCards(matchArray) {
+    $card1 = matchArray[0];
+    $card2 = matchArray[1];
+    $card3 = matchArray[2];
+    $card4 = matchArray[3];
 
-      if (twoClicks.length == 2) {  // if there are two clicks of type "two"
-        $card1 = twoClicks[0];
-        $card2 = twoClicks[1];
-        if (checkPair($card1, $card2)) {
-          $card1.addClass("played");
-          $card2.addClass("played");
-          twoClicks = [];
-        } else {
-          twoClicks = [];
-        }
-      }
-    } else if ($this.hasClass("three")) {
-      chances = 3; 
-      threeClicks.push($this);
-      if (threeClicks.length == 3) {
-        $card1 = threeClicks[0];
-        $card2 = threeClicks[1];
-        $card3 = threeClicks[2];
-        if (checkTriplet($card1, $card2, $card3)) {
-          $card1.addClass("played");
-          $card2.addClass("played");
-          $card3.addClass("played");
-          threeClicks = [];
-        } else {
-          threeClicks = [];
-        }
-      }
-    } else { // has class of 'four'
-      chances = 4
-      fourClicks.push($this);
-      if (fourClicks.length == 4) {
-        $card1 = fourClicks[0];
-        $card2 = fourClicks[1];
-        $card3 = fourClicks[2];
-        $card4 = fourClicks[3];
-        if (checkQuadruplet($card1, $card2, $card3, $card4)) {
-          $card1.addClass("played");
-          $card2.addClass("played");
-          $card3.addClass("played");
-          $card4.addClass("played");
-          fourClicks = [];
-        } else {
-          fourClicks = [];
-        }
-      }
+    if (checkPair($card1, $card2)) {
+      turnBackside(matchArray);
+      twoClicks = [];
+      console.log("Pair matched!");
+      return true;
+    } else if(checkTriplet($card1, $card2, $card3)) {
+      turnBackside(matchArray);
+      threeClicks = [];
+      console.log("Triplet matched!")
+      return true;
+    } else if(checkQuadruplet($card1, $card2, $card3, $card4)) {
+      turnBackside(matchArray);
+      fourClicks = [];
+      console.log("Quadruplet matched!")
+      return true;
+    } else {
+      console.log("No matches!")
+      console.log($card1 + " " + $card2 + " " + $card3 + " " + $card4)
+      return false;
     }
-  });
+  }
+
+  function checkPair(card1, card2) {
+    return card1.hasClass("two") && card2.hasClass("two")
+  }
+
+  function checkTriplet(card1, card2, card3) {
+    return card1.hasClass("three") && card2.hasClass("three") && card3.hasClass("three");
+  }
+
+  function checkQuadruplet(card1, card2, card3, card4) {
+    return card1.hasClass("four") && card2.hasClass("four") && card3.hasClass("four") && card4.hasClass("four");
+  }
+
+  function addClass(array, css_class) {
+    for(i = 0; i < array.length; i++) {
+      array[i].addClass(css_class);
+    }
+  }
+
+  function matchCards(matchArray) {
+    $card1 = matchArray[0];
+    $card2 = matchArray[1];
+    $card3 = matchArray[2];
+    $card4 = matchArray[3];
+
+    if (checkPair($card1, $card2)) {
+      addClass(matchArray, "played")
+      twoClicks = [];
+      console.log("Pair matched!");
+      return true;
+    } else if(checkTriplet($card1, $card2, $card3)) {
+      addClass(matchArray, "played")
+      threeClicks = [];
+      console.log("Triplet matched!")
+      return true;
+    } else if(checkQuadruplet($card1, $card2, $card3, $card4)) {
+      addClass(matchArray, "played")
+      fourClicks = [];
+      console.log("Quadruplet matched!")
+      return true;
+    } else {
+      console.log("No matches!")
+      console.log($card1 + " " + $card2 + " " + $card3 + " " + $card4)
+      return false;
+    }
+  }
+
 });
+
+    
+
+    // if(clickCount % 3 == 0 && clickCount != 0) {  // reset twoClicks matching array every three clicks
+    //     twoClicks = [];
+    // }
+    // if(clickCount % 4 == 0 && clickCount != 0) {  // reset threeClicks matching array every four clicks
+    //     threeClicks = [];
+    // }
+    // if(clickCount % 5 == 0 && clickCount != 0) {  // reset fourClicks matching array every four clicks
+    //     fourClicks = [];
+    // }
+
