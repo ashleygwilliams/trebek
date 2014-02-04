@@ -27,7 +27,9 @@
   }
 
   &.played {
-    display:none;
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
   }
 
   &.two {
@@ -45,4 +47,20 @@
   &.backside {
     background-color: black;
   }
+}
+
+.mem_header {
+  color: white;
+  font-size: 1.12em;
+  position: relative;
+  h2 {
+    display:inline-block;
+  }
+}
+
+.mem_scoreboard {
+  font-size: 1.7em;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
