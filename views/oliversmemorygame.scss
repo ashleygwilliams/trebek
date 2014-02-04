@@ -47,6 +47,9 @@
   &.backside {
     background-color: black;
   }
+  &.frontside {
+    border: 2px solid white;
+  }
 }
 
 .mem_header {

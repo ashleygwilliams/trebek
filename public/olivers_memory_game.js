@@ -26,52 +26,54 @@ $(function() {
     $scoreTotal = $(".mem_score")
 
     clickCount++ 
-
-    if(chances == 0) {
-      if($this.hasClass("two")) {
+    if(!$this.hasClass("frontside") && !$this.hasClass("played")){
+      $this.addClass("frontside")
+      if(chances == 0) {   // state in which user is choosing the first card
+        if($this.hasClass("two")) {
+          twoClicks.push($this);
+          chances = 2;
+        } else if ($this.hasClass("three")) {
+          threeClicks.push($this);
+          chances = 3; 
+        } else { // has class of 'four'
+          fourClicks.push($this);
+          chances = 4;
+        }
+      } else if(chances == 2) {
         twoClicks.push($this);
-        chances = 2;
-      } else if ($this.hasClass("three")) {
+        if (twoClicks.length == 2) {  // if there are two clicks of type "two"
+          if (matchCards(twoClicks)) {
+            addPoints($pointValue, $scoreTotal);
+          } else {
+            turnBackside(twoClicks);
+            twoClicks = [];
+          }
+        chances = 0;  // user gets sent back to initial state
+        }
+      } else if(chances == 3) {
         threeClicks.push($this);
-        chances = 3; 
-      } else { // has class of 'four'
+        if (threeClicks.length == 3) {
+          if(matchCards(threeClicks)) {
+            addPoints($pointValue, $scoreTotal);
+          } else {
+            turnBackside(threeClicks);
+            threeClicks = [];
+          }
+        chances = 0;
+        }
+      } else if(chances == 4) {
         fourClicks.push($this);
-        chances = 4;
-      }
-    } else if(chances == 2) {
-      twoClicks.push($this);
-      if (twoClicks.length == 2) {  // if there are two clicks of type "two"
-        if (matchCards(twoClicks)) {
-          addPoints($pointValue, $scoreTotal);
-        } else {
-          turnBackside(twoClicks);
-          twoClicks = [];
+        if (fourClicks.length == 4) {
+          if (matchCards(fourClicks)) {
+            addPoints($pointValue, $scoreTotal);
+          } else {
+            turnBackside(fourClicks);
+            fourClicks = [];
+          }
+        chances = 0;
         }
-      chances = 0;  // user gets sent back to initial state
       }
-    } else if(chances == 3) {
-      threeClicks.push($this);
-      if (threeClicks.length == 3) {
-        if(matchCards(threeClicks)) {
-          addPoints($pointValue, $scoreTotal);
-        } else {
-          turnBackside(threeClicks);
-          threeClicks = [];
-        }
-      chances = 0;
-      }
-    } else if(chances == 4) {
-      fourClicks.push($this);
-      if (fourClicks.length == 4) {
-        if (matchCards(fourClicks)) {
-          addPoints($pointValue, $scoreTotal);
-        } else {
-          turnBackside(fourClicks);
-          fourClicks = [];
-        }
-      chances = 0;
-      }
-    }
+    } 
   });
 
   function addPoints(points, scoreElement) {
@@ -88,6 +90,7 @@ $(function() {
   function turnBackside(cardArray) {
     setTimeout(function(){
       addClass(cardArray, "backside");
+      removeClass(cardArray, "frontside");
       for(i = 0; i < cardArray.length; i++) {
         cardArray[i].find(".points").fadeOut(); 
       }
@@ -162,6 +165,12 @@ $(function() {
   function addClass(array, css_class) {
     for(i = 0; i < array.length; i++) {
       array[i].addClass(css_class);
+    }
+  }
+
+  function removeClass(array, css_class) {
+    for(i = 0; i < array.length; i++) {
+      array[i].removeClass(css_class);
     }
   }
 
