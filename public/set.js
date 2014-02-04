@@ -85,9 +85,14 @@ function mapTraits(collection, trait) {
 
 function removeSet(cards) {
   cards.fadeOut("slow", function(){
-    $(this).replaceWith($(".hidden .card").first());
-    cards.fadeIn();
+    var $this = $(this);
+    $(".hidden .card").first().insertBefore(this);
+    $this.detach;
+  });
+
+  cards.promise().done(function() {
     countSets();
+    $(this).remove();
   });
 }
 
