@@ -19,7 +19,6 @@ $(document).ready(function() {
         var score = parseInt($scoreContainer.text().match(/\d+/g));
         $scoreContainer.text("cards remaining: " + (score - 3));
         removeSet($chosen);
-        $chosen.promise().done(countSets);
       } else {
         $chosen.removeClass("chosen");
       }
@@ -48,7 +47,7 @@ function countSets() {
 
 function findSets() {
   var counter = 0;
-  var $cardsOnTable = $(".board div.card");
+  var $cardsOnTable = $(".board div.card").not(".chosen");
   
   var set = jQuery.makeArray($cardsOnTable);
   var combinations = k_combinations(set, 3);
@@ -86,10 +85,9 @@ function mapTraits(collection, trait) {
 
 function removeSet(cards) {
   cards.fadeOut("slow", function(){
-    console.log("remove");
     $(this).replaceWith($(".hidden .card").first());
-    console.log("remove");
-    $(this).fadeIn("slow");
+    cards.fadeIn();
+    countSets();
   });
 }
 
