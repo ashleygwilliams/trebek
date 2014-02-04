@@ -20,7 +20,7 @@ $(function() {
 
   $(".mem_card").on("click", function() {
     $this = $(this)
-    $pointValue = $this.find(".points").text()
+    $pointValue = $this.find(".points div").first().text()
     $this.removeClass("backside");
     $this.find(".points").fadeIn("slow");
     $scoreTotal = $(".mem_score")

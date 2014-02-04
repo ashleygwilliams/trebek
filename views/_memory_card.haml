@@ -1,5 +1,7 @@
 
 %div{class: "mem_card backside col5 #{@card.siblings}"}
   .points 
-    = @card.points
-    %p Match me with #{@card.siblings} other cards
+    %div
+      = @card.points
+    %div
+      %p Match me with #{@card.siblings} other cards
