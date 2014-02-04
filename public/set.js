@@ -31,7 +31,6 @@ $(document).ready(function() {
 });
 
 function countSets() {
-  console.log("countSets");
   var sets = findSets();
   if (sets === 0) {
     if ($(".card").length < 13) { 
@@ -53,10 +52,7 @@ function findSets() {
   var combinations = k_combinations(set, 3);
 
   for (var i = 0, combination; combination = combinations[i]; i++) {
-    if (isASet($(combination))) {
-      console.log($(combination));
-      counter++;
-    }
+    if (isASet($(combination))) { counter++; }
   }
 
   return counter;
