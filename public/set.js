@@ -53,8 +53,10 @@ function findSets() {
   var combinations = k_combinations(set, 3);
 
   for (var i = 0, combination; combination = combinations[i]; i++) {
-    console.log(combination);
-    if (isASet($(combination))) { counter++; }
+    if (isASet($(combination))) {
+      console.log($(combination));
+      counter++;
+    }
   }
 
   return counter;
