@@ -1,0 +1,33 @@
+/* change faceDown to faceDown and question to faceUp */
+h3 {
+  color: white;
+}
+.faceDown img {
+  width: 75%;
+}
+.card {
+  overflow: hidden;
+}
+.card .faceUp {
+  top: 0px;
+}
+.faceUp img {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.faceUp, .num {
+  display: none; /* hide faceUp and answer */
+  font-size: 14.5px;
+}
+.faceDown, .faceUp {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 27.5px;
+  color: white;
+  font-weight: 700;
+}
+.faceDown, {
+  font-size: 30px;
+}

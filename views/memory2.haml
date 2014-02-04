@@ -1,0 +1,12 @@
+%h1 I've Made A Huge Mistake
+%h3 Match the images with their description.
+
+.board
+  - @cards.shuffle.each do |card|
+    = partial :memory_card, @card=card
+
+%footer
+  (c)2014 sarah ransohoff, with help and <3 from ashley williams
+
+%script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+%script{:src=>"/memory.js"}
