@@ -18,16 +18,16 @@ $(document).ready(function(){
         $this.addClass("selected");
         $this.nextAll().addClass("selected");
       } else {
+        var $firstSelected = $($selected[0]);
       // for when cards have been selected
         if($this.hasClass("selected")){
           //remove selected if clicked on selected
           $selected.removeClass("selected");
-        } else {
-          //move selected card to new column
+        } else if (+$this.find(".value").text() == +$firstSelected.find(".value").text()+1){
+          //move selected card to new column if values allow it
           $selected.prev().removeClass("faceDown");
           $selected.appendTo($this.parent());
           $(".card").removeClass("selected");
-
         }
       }
     }
