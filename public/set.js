@@ -18,7 +18,7 @@ $(document).ready(function() {
       if (isASet($chosen)) {
         var score = parseInt($scoreContainer.text().match(/\d+/g));
         $scoreContainer.text("cards remaining: " + (score - 3));
-        $.when(removeSet($chosen)).done(countSets());
+        $.when(removeSet($chosen)).done(countSets);
       } else {
         $chosen.removeClass("chosen");
       }
