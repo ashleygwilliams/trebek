@@ -19,12 +19,13 @@ $(document).ready(function(){
             $this.addClass("turnedOver");
             $otherCard.removeClass("chosen");
             $otherCard.addClass("turnedOver");
+            if ($(".card.turnedOver").length == $cards.length) {
+              console.log("YOU WON");
+            }
           }, 1000);
           // all cards are turned over
           // WHY DOESN'T THIS WORK
-          if ($(".card.turnedOver").length == $cards.length) {
-            console.log("YOU WON");
-          }
+          
         // if their faces are not the same
         } else {
           setTimeout(function(){

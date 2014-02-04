@@ -5,19 +5,20 @@ h3 {
 .faceDown img {
   width: 75%;
 }
+.card {
+  overflow: hidden;
+}
+.card .faceUp {
+  top: 0px;
+}
 .faceUp img {
-  width: 110%;
-  margin-left: -5px;
-  /*position: absolute;*/
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 .faceUp, .num {
   display: none; /* hide faceUp and answer */
   font-size: 14.5px;
-}
-.card .faceUp {
-  top: 0px;
-  /* WHY DOESN'T THIS WORK */
-  overflow: hidden;
 }
 .faceDown, .faceUp {
   width: 100%;
