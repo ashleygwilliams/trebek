@@ -21,7 +21,9 @@ class Gambit < Sinatra::Application
   end
 
   get "/" do
-    haml :index
+    deck = Deck.new("data/olivers_memory_game.yml")
+    @cards = deck.cards
+    haml :olivers_memory_game2
   end
 
   get "/games/new/" do
