@@ -26,11 +26,14 @@ $(document).ready(function(){
         } else if (+$this.find(".value").text() == +$firstSelected.find(".value").text()+1){
           //move selected card to new column if values allow it
           $selected.prev().removeClass("faceDown");
+          for (var i = $selected.first().prevAll().length -1 ; i <= 0; i--){
+
+          }
           $selected.appendTo($this.parent());
           $(".card").removeClass("selected");
-          //block cards before selection if they are off-suit.
+          //unblock card when card is moved
           if ($this.find(".suit").text() != $firstSelected.find(".suit").text()){
-            $firstSelected.prevAll().addClass("blocked");
+            $firstSelected.prevAll().not(".faceDown").addClass("blocked");
           }
         }
       }
