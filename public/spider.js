@@ -28,6 +28,10 @@ $(document).ready(function(){
           $selected.prev().removeClass("faceDown");
           $selected.appendTo($this.parent());
           $(".card").removeClass("selected");
+          //block cards before selection if they are off-suit.
+          if ($this.find(".suit").text() != $firstSelected.find(".suit").text()){
+            $firstSelected.prevAll().addClass("blocked");
+          }
         }
       }
     }
