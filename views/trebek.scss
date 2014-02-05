@@ -63,6 +63,11 @@ h1 {
   font-size: 40px;
 }
 
+h2 {
+  color: white;
+  font-size: 20px;
+}
+
 /* cards */
 .card {
   @include border-radius(10px);

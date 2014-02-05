@@ -1,0 +1,11 @@
+%h1 Blackjack
+.board
+  %h2 Your hand:
+  = partial :card, @card=@cards.sample
+  = partial :card, @card=@cards.sample
+
+= partial :scoreboard
+%footer
+  powered by gambit and trebek, (c)2014 ashley williams
+%script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+%script{:src=>"/inclass.js"}
