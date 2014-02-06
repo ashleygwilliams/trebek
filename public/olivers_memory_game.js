@@ -7,10 +7,11 @@ $(function() {
   var fourClicks = [];
   var clickCount = 0;
   var chances = 0;
-  var timeLeft = 30; // 3 minute timer
+  var timeLeft = 45; // 3 minute timer
   var $memCards = $(".mem_card")
   var $startButton = $("#start")
   var $timer = $("#timer")
+  var $scoreTotal = $(".mem_score")
   var start = false;
 
   console.log($memCards)
@@ -33,11 +34,16 @@ $(function() {
       $timer.html("Time left: " + strTime(timeLeft));
       if(timeLeft == 0) {
         $(".mem_card").hide();
+        gameOver()
         clearInterval(timerInterval); // this stops the current interval function from running
       } 
     }, 1000);
   });
 
+  function gameOver() {
+    var score = $()
+    $(".mem_header").html("<h1>GAME OVER!</h1><h2>Your score was " + $scoreTotal.text() + "</h2><h3><a href=''>Play again?</a></h3>");
+  }
   
 
 
@@ -49,7 +55,6 @@ $(function() {
     var $pointValue = $this.find(".points div").first().text()
     $this.removeClass("backside");
     $this.find(".points").fadeIn("slow");
-    $scoreTotal = $(".mem_score")
 
     clickCount++ 
     if(!$this.hasClass("frontside") && !$this.hasClass("played")){
@@ -101,6 +106,8 @@ $(function() {
       }
     } 
   });
+
+
 
   function addPoints(points, scoreElement) {
     var points_int = Number(points);
