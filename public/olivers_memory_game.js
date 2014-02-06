@@ -7,7 +7,7 @@ $(function() {
   var fourClicks = [];
   var clickCount = 0;
   var chances = 0;
-  var timeLeft = 45; // 3 minute timer
+  var timeLeft = 30; // 3 minute timer
   var $memCards = $(".mem_card")
   var $startButton = $("#start")
   var $timer = $("#timer")
