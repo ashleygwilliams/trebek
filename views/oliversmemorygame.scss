@@ -59,11 +59,26 @@
   h2 {
     display:inline-block;
   }
-}
-
-.mem_scoreboard {
+  .mem_scoreboard {
   font-size: 1.7em;
   position: absolute;
   right: 10px;
   top: 10px;
+  }
+  .mem_timer {
+    font-size: 1.7em;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  button {
+    color: black;
+    @include border-radius(20px);
+    width: 200;
+    height: 100px;
+  }
+
 }
+
+

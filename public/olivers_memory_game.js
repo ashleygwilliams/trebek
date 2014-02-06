@@ -2,25 +2,51 @@
 
 $(function() {
 
+  var twoClicks = [];
+  var threeClicks = [];
+  var fourClicks = [];
+  var clickCount = 0;
+  var chances = 0;
+  var timeLeft = 30; // 3 minute timer
+  var $memCards = $(".mem_card")
+  var $startButton = $("#start")
+  var $timer = $("#timer")
+  var start = false;
 
+  console.log($memCards)
   //set height of cards based on window height when loaded
   var windowHeight = $(window).height(); 
   var headerHeight = $(".mem_header").height()
-  $(".mem_container").css("height", windowHeight - windowHeight*0.23 - headerHeight);
+  $(".mem_container").css("height", windowHeight - windowHeight*0.10 - headerHeight);
+
+  
+  $memCards.shuffle();
+  $(".mem_card").hide();
+
+  $startButton.on("click", function() {
+    start = true;
+    $(".mem_card").show();
+    $(this).hide()
+    
+    var timerInterval = setInterval(function(){
+      timeLeft--;
+      $timer.html("Time left: " + strTime(timeLeft));
+      if(timeLeft == 0) {
+        $(".mem_card").hide();
+        clearInterval(timerInterval); // this stops the current interval function from running
+      } 
+    }, 1000);
+  });
+
+  
+
 
   
   
-  $(".mem_card").shuffle()
-
-  twoClicks = [];
-  threeClicks = [];
-  fourClicks = [];
-  clickCount = 0;
-  chances = 0;
 
   $(".mem_card").on("click", function() {
-    $this = $(this)
-    $pointValue = $this.find(".points div").first().text()
+    var $this = $(this)
+    var $pointValue = $this.find(".points div").first().text()
     $this.removeClass("backside");
     $this.find(".points").fadeIn("slow");
     $scoreTotal = $(".mem_score")
@@ -95,6 +121,26 @@ $(function() {
         cardArray[i].find(".points").fadeOut(); 
       }
     }, 700)
+  }
+
+
+  function strTime(seconds) { // Home made time formatter for minutes + seconds
+    var minutes = Math.floor(seconds/60);
+    var seconds = (seconds % 60).toString()
+    return minutes + ":" + seconds.zeroPad(2);
+  }
+
+  String.prototype.zeroPad = function(numbZeros) { // I made this yay padding! 
+    var strLength = String(this).length;
+    if(numbZeros <= strLength) {
+      return String(this);
+    } else {
+      return "0".repeat(numbZeros - strLength) + String(this);
+    }
+  }
+
+  String.prototype.repeat = function(num) { // Stole this from Stack Overflow
+    return new Array( num + 1 ).join( this );
   }
 
   function removeCards(cardArray) {
