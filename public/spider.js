@@ -31,7 +31,7 @@ $(document).ready(function(){
           }
           $selected.appendTo($this.parent());
           $(".card").removeClass("selected");
-          //unblock card when card is moved
+          //block card when card is off-suit
           if ($this.find(".suit").text() != $firstSelected.find(".suit").text()){
             $firstSelected.prevAll().not(".faceDown").addClass("blocked");
           }
