@@ -24,22 +24,39 @@ $(document).ready(function(){
           //remove selected if clicked on selected
           $selected.removeClass("selected");
         } else if (+$this.find(".value").text() == +$firstSelected.find(".value").text()+1){
-          //move selected card to new column if values allow it
+          var $blockedInCol = $firstSelected.prevAll(".blocked");
+          //turn uncovered card face-up
           $selected.prev().removeClass("faceDown");
-          for (var i = $selected.first().prevAll().length -1 ; i <= 0; i--){
-
-          }
+          //move selected card to new column if values allow it
           $selected.appendTo($this.parent());
           $(".card").removeClass("selected");
           //block card when card is off-suit
           if ($this.find(".suit").text() != $firstSelected.find(".suit").text()){
             $firstSelected.prevAll().not(".faceDown").addClass("blocked");
           }
+          //unblock cards
+          unblockCards($blockedInCol);
         }
       }
     }
   });
 
 });
+
+
+function unblockCards(blockedArray){
+  if (blockedArray.length >= 1){
+    blockedArray.each(function(){
+      if ($(this) === $(blockedArray[0])){
+        $(this).removeClass("blocked");
+      } else if ($(this).find(".suit").text() == $(this).next().find(".suit").text()
+        && +$(this).find(".value").text() == +$(this).next().find(".value").text()+1){
+          $(this).removeClass("blocked");
+        } else {
+          return false
+        }
+    });
+  }
+}
 
 //need to make reserve not-selectable
