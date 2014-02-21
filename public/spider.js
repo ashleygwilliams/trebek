@@ -27,6 +27,8 @@ $(document).ready(function(){
           var $blockedInCol = $firstSelected.prevAll(".blocked");
           //turn uncovered card face-up
           $selected.prev().removeClass("faceDown");
+          //unblock cards
+          unblockCards($blockedInCol);
           //move selected card to new column if values allow it
           $selected.appendTo($this.parent());
           $(".card").removeClass("selected");
@@ -34,8 +36,6 @@ $(document).ready(function(){
           if ($this.find(".suit").text() != $firstSelected.find(".suit").text()){
             $firstSelected.prevAll().not(".faceDown").addClass("blocked");
           }
-          //unblock cards
-          unblockCards($blockedInCol);
         }
       }
     }
@@ -46,15 +46,16 @@ $(document).ready(function(){
 
 function unblockCards(blockedArray){
   if (blockedArray.length >= 1){
-    blockedArray.each(function(){
-      if ($(this) === $(blockedArray[0])){
+    $.each(blockedArray, function(){
+      if (this === blockedArray[0]){
         $(this).removeClass("blocked");
       } else if ($(this).find(".suit").text() == $(this).next().find(".suit").text()
         && +$(this).find(".value").text() == +$(this).next().find(".value").text()+1){
-          $(this).removeClass("blocked");
-        } else {
-          return false
-        }
+        $(this).removeClass("blocked");
+      } else {
+        console.log("third");
+        return false
+      }
     });
   }
 }
