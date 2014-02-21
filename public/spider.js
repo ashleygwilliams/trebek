@@ -16,15 +16,15 @@ function unblockCards(blockedArray){
 
 
 $(document).ready(function(){
-  var $columnArray = $(".column")
   
   //flip last row in each column face-up to start game
-  $columnArray.each(function(col){
+  $(".board .column").each(function(col){
     $(this).children().last().removeClass("faceDown");
   })
 
   //select card on click
-  $(".board .card").on("click", function(){
+  $(".board .column").on("click", ".card", function(){
+    console.log("yay! a card has been clicked!");
     var $this = $(this);
     var $selected = $(".selected");
 
@@ -62,11 +62,11 @@ $(document).ready(function(){
   $(".reserve .column").on("click", function(){
     var $stack = $(this);
     if(this == $(".reserve .column")[0]){
-      $stack.remove();
       $.each($(".board .column"), function(){
-        var card = $stack.children().first().detach();
-        card.appendTo($(this));
+        var card = $stack.children().first();
         card.removeClass("faceDown");
+        card.remove();
+        card.appendTo($(this));
       });
     }
   });
