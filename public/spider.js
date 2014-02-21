@@ -7,7 +7,7 @@ $(document).ready(function(){
   })
 
   //select card on click
-  $(".card").on("click", function(){
+  $(".board .card").on("click", function(){
     var $this = $(this);
     var $selected = $(".selected");
 
@@ -59,5 +59,3 @@ function unblockCards(blockedArray){
     });
   }
 }
-
-//need to make reserve not-selectable
