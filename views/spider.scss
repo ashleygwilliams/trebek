@@ -82,9 +82,16 @@ h1 {
   position: fixed;
   bottom: 10px;
   right: 0px;
-  & .card {
+  & .column {
+    @include border-radius(10px);
+    background-color: $flatiron-blue;
+    border: solid black 1px;
+    height: 100px;
     width: 14%;
     margin: 0;
+  }
+  & .card {
+    display: none;
   }
 }
 

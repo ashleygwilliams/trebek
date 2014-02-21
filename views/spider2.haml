@@ -16,6 +16,9 @@
     %h1 Score: 0
   .reserve
     -6.times do
-      .column.card
+      .column
+        - 10.times do
+          - @card=@deck.shift
+          = partial :spider_card
 %script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
 %script{:src=>"/spider.js"}

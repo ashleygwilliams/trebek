@@ -1,3 +1,20 @@
+function unblockCards(blockedArray){
+  if (blockedArray.length >= 1){
+    $.each(blockedArray, function(){
+      if (this === blockedArray[0]){
+        $(this).removeClass("blocked");
+      } else if ($(this).find(".suit").text() == $(this).next().find(".suit").text()
+        && +$(this).find(".value").text() == +$(this).next().find(".value").text()+1){
+        $(this).removeClass("blocked");
+      } else {
+        console.log("third");
+        return false
+      }
+    });
+  }
+}
+
+
 $(document).ready(function(){
   var $columnArray = $(".column")
   
@@ -41,21 +58,16 @@ $(document).ready(function(){
     }
   });
 
+  //handle reserve cards
+  $(".reserve .column").on("click", function(){
+    var $stack = $(this);
+    if(this == $(".reserve .column")[0]){
+      $stack.remove();
+      $.each($(".board .column"), function(){
+        var card = $stack.children().first().detach();
+        card.appendTo($(this));
+        card.removeClass("faceDown");
+      });
+    }
+  });
 });
-
-
-function unblockCards(blockedArray){
-  if (blockedArray.length >= 1){
-    $.each(blockedArray, function(){
-      if (this === blockedArray[0]){
-        $(this).removeClass("blocked");
-      } else if ($(this).find(".suit").text() == $(this).next().find(".suit").text()
-        && +$(this).find(".value").text() == +$(this).next().find(".value").text()+1){
-        $(this).removeClass("blocked");
-      } else {
-        console.log("third");
-        return false
-      }
-    });
-  }
-}
