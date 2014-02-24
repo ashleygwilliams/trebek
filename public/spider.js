@@ -15,7 +15,31 @@ function unblockCards(blockedArray){
 }
 
 function findCardsToRemove(cardClicked){
-  var colContents = $(cardClicked).parent()
+  var prev = $(cardClicked).prevAll(".card").not(".blocked");
+  var next = $(cardClicked).nextAll(".card").not(".blocked");
+  var colContents = prev.add(cardClicked).add(next);
+  var $king;
+  $.each(colContents, function(){
+    if(+$(this).find(".value").text() == 13 && !$(this).hasClass("faceDown") && !$(this).hasClass("blocked")){
+      $king = $(this);
+      checkNext($king);
+    }
+  });
+}
+
+function checkNext(card){
+  $eval = card.next();
+  console.log("comparing the prev card " + card.find(".value").text() + "with the next card "+ $eval.find(".value").text());
+  if($eval == null && $eval.hasClass("faceDown") && $eval.hasClass("blocked")){
+    return null;
+  } else if (+$eval.find(".value").text()+1 == +card.find(".value").text()
+           && $eval.find(".suit").text() == card.find(".suit").text()){
+    if (+$eval.find(".value").text == 1){
+      removeCards();
+    } else {
+      checkNext($eval);      
+    }
+  }
 }
 
 $(document).ready(function(){
@@ -51,6 +75,7 @@ $(document).ready(function(){
           //move selected card to new column if values allow it
           $selected.appendTo($this.parent());
           $(".card").removeClass("selected");
+          findCardsToRemove(this);
           //block card when card is off-suit
           if ($this.find(".suit").text() != $firstSelected.find(".suit").text()){
             $firstSelected.prevAll().not(".faceDown").addClass("blocked");
