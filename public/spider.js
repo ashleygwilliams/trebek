@@ -70,4 +70,12 @@ $(document).ready(function(){
       });
     }
   });
+
+  $(".blank").on("click", function(){
+    if($(".selected").length > 0){
+      $(".selected").prev().removeClass("faceDown");
+      $(".selected").appendTo($(this).parent());
+      $(".selected").removeClass("selected");
+    }
+  });
 });

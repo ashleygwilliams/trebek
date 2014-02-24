@@ -3,11 +3,13 @@
   - @deck = @cards.shuffle
   - 4.times do
     .column
+      .blank
       - 5.times do
         - @card=@deck.shift
         = partial :spider_card
   - 6.times do
     .column
+      .blank
       -4.times do
         - @card=@deck.shift
         = partial :spider_card

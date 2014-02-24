@@ -27,6 +27,14 @@ body {
   margin: 0 
 }
 
+.blank {
+  background-color: grey;
+  height: 100px;
+  position: relative;
+  top: 71px;
+  @include border-radius(10px);
+}
+
 /* layout components */
 .board {
   width: 90%;
