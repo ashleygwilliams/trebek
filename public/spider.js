@@ -24,7 +24,6 @@ $(document).ready(function(){
 
   //select card on click
   $(".board .column").on("click", ".card", function(){
-    console.log("yay! a card has been clicked!");
     var $this = $(this);
     var $selected = $(".selected");
 
@@ -62,6 +61,7 @@ $(document).ready(function(){
   $(".reserve .column").on("click", function(){
     var $stack = $(this);
     if(this == $(".reserve .column")[0]){
+      $stack.remove();
       $.each($(".board .column"), function(){
         var card = $stack.children().first();
         card.removeClass("faceDown");
