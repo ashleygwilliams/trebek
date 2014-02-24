@@ -37,6 +37,8 @@ body {
 
 /* layout components */
 .board {
+  position:relative;
+  top: -90px;
   width: 90%;
   margin: auto;
 }
@@ -86,6 +88,7 @@ h1 {
 }
 
 .reserve {
+  z-index: -1;
   width: 50%;
   position: fixed;
   bottom: 10px;

@@ -14,6 +14,9 @@ function unblockCards(blockedArray){
   }
 }
 
+function findCardsToRemove(cardClicked){
+  var colContents = $(cardClicked).parent()
+}
 
 $(document).ready(function(){
   
@@ -73,9 +76,11 @@ $(document).ready(function(){
 
   $(".blank").on("click", function(){
     if($(".selected").length > 0){
+      var $blockedInCol = $($(".selected")[0]).prevAll(".blocked");
       $(".selected").prev().removeClass("faceDown");
       $(".selected").appendTo($(this).parent());
       $(".selected").removeClass("selected");
+      unblockCards($blockedInCol);
     }
   });
 });
