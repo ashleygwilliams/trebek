@@ -106,17 +106,26 @@ $(document).ready(function(){
   });
 
   //handle reserve cards
-  $(".reserve .column").on("click", function(){
-    var $stack = $(this);
-    if(this == $(".reserve .column")[0]){
-      $stack.remove();
-      $.each($(".board .column"), function(){
-        var card = $stack.children().first();
-        card.removeClass("faceDown");
-        card.remove();
-        card.appendTo($(this));
-      });
-    }
+  $(".reserve").on("click", ".column", function(){
+    var colArr = $(".board").find(".column");
+    var value;
+    $.each(colArr, function(){
+      var cards = $(this).children(".card");
+      if(cards.length == 0){
+        alert("Columns cannot be empty.");
+      } else {
+        var $stack = $(this);
+        if(this == $(".reserve .column")[0]){
+          $stack.remove();
+          $.each($(".board .column"), function(){
+            var card = $stack.children().first();
+            card.removeClass("faceDown");
+            card.remove();
+            card.appendTo($(this));
+          });
+        }
+      }
+    });
   });
 
   $(".blank").on("click", function(){
