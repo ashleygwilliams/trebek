@@ -14,6 +14,21 @@ function unblockCards(blockedArray){
   }
 }
 
+function checkColumns(colArr){
+  var value;
+  $.each(colArr, function(){
+    var cards = $(this).children(".card");
+    if(cards.length == 0){
+      alert("Columns cannot be empty.");
+      value = false;
+      return value;
+    } else {
+      value = true;
+    }
+  });
+  return value;
+}
+
 function findCardsToRemove(cardClicked){
   var prev = $(cardClicked).prevAll(".card").not(".blocked");
   var next = $(cardClicked).nextAll(".card").not(".blocked");
@@ -62,6 +77,7 @@ function removeCards(card){
   }
 }
 
+
 $(document).ready(function(){
   
   //flip last row in each column face-up to start game
@@ -106,26 +122,22 @@ $(document).ready(function(){
   });
 
   //handle reserve cards
-  $(".reserve").on("click", ".column", function(){
+  $(".reserve .column").on("click", function(){
     var colArr = $(".board").find(".column");
-    var value;
-    $.each(colArr, function(){
-      var cards = $(this).children(".card");
-      if(cards.length == 0){
-        alert("Columns cannot be empty.");
-      } else {
-        var $stack = $(this);
-        if(this == $(".reserve .column")[0]){
-          $stack.remove();
-          $.each($(".board .column"), function(){
-            var card = $stack.children().first();
-            card.removeClass("faceDown");
-            card.remove();
-            card.appendTo($(this));
-          });
-        }
+    var fullColumns = checkColumns(colArr);
+    console.log("i am here!");
+    if(fullColumns){
+      var $stack = $(this);
+      if(this == $(".reserve .column")[0]){
+        $stack.remove();
+        $.each($(".board .column"), function(){
+          var card = $stack.children().first();
+          card.removeClass("faceDown");
+          card.remove();
+          card.appendTo($(this));
+        });
       }
-    });
+    }
   });
 
   $(".blank").on("click", function(){
