@@ -3,7 +3,7 @@ function unblockCards(blockedArray){
     $.each(blockedArray, function(){
       if (this === blockedArray[0]){
         $(this).removeClass("blocked");
-      } else if ($(this).find(".suit").text() == $(this).next().find(".suit").text()
+      } else if ($(this).find(".suit").text().trim() == $(this).next().find(".suit").text().trim()
         && +$(this).find(".value").text() == +$(this).next().find(".value").text()+1){
         $(this).removeClass("blocked");
       } else {
@@ -46,7 +46,7 @@ function checkNext(card){
   if($eval == null && $eval.hasClass("faceDown") && $eval.hasClass("blocked")){
     return null;
   } else if (+$eval.find(".value").text()+1 == +card.find(".value").text()
-           && $eval.find(".suit").text() == card.find(".suit").text()){
+           && $eval.find(".suit").text().trim() == card.find(".suit").text().trim()){
     if (+$eval.find(".value").text() == 1){
       removeCards($eval);
       checkWin();
@@ -108,7 +108,7 @@ $(document).ready(function(){
           $(".card").removeClass("selected");
           findCardsToRemove(this);
           //block card when card is off-suit
-          if ($this.find(".suit").text() != $firstSelected.find(".suit").text()){
+          if ($this.find(".suit").text().trim() != $firstSelected.find(".suit").text().trim()){
             $firstSelected.prevAll().not(".faceDown").addClass("blocked");
           }
         }
@@ -125,10 +125,16 @@ $(document).ready(function(){
       if(this == $(".reserve .column")[0]){
         $stack.remove();
         $.each($(".board .column"), function(){
-          var card = $stack.children().first();
-          card.removeClass("faceDown");
-          card.remove();
-          card.appendTo($(this));
+          var $card = $stack.children().first();
+          $card.removeClass("faceDown");
+          $card.remove();
+          $card.appendTo($(this));
+          //block card when card is off-suit
+          if ($card.find(".suit").text().trim() != $card.prev().find(".suit").text().trim() ||
+            +$card.find(".value").text() != +$card.prev().find(".value").text()-1){
+            console.log("blocked!");
+            $card.prevAll().not(".faceDown").addClass("blocked");
+          }
         });
       }
     }
