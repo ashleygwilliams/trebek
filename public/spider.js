@@ -7,7 +7,6 @@ function unblockCards(blockedArray){
         && +$(this).find(".value").text() == +$(this).next().find(".value").text()+1){
         $(this).removeClass("blocked");
       } else {
-        console.log("third");
         return false
       }
     });
@@ -45,16 +44,13 @@ function findCardsToRemove(cardClicked){
 function checkNext(card){
   $eval = card.next();
   if($eval == null && $eval.hasClass("faceDown") && $eval.hasClass("blocked")){
-    console.log("There's a no condition.");
     return null;
   } else if (+$eval.find(".value").text()+1 == +card.find(".value").text()
            && $eval.find(".suit").text() == card.find(".suit").text()){
     if (+$eval.find(".value").text() == 1){
-      console.log("It's an ace!");
       removeCards($eval);
       checkWin();
     } else {
-      console.log("Comparing the next card!");
       checkNext($eval);      
     }
   }
@@ -68,7 +64,6 @@ function checkWin(){
 }
 
 function removeCards(card){
-  console.log("Time to remove the cards!");
   var $toRemove = card;
   for (var i = 0; i < 13; i++){
     var next = $toRemove.prev();
@@ -125,7 +120,6 @@ $(document).ready(function(){
   $(".reserve .column").on("click", function(){
     var colArr = $(".board").find(".column");
     var fullColumns = checkColumns(colArr);
-    console.log("i am here!");
     if(fullColumns){
       var $stack = $(this);
       if(this == $(".reserve .column")[0]){
