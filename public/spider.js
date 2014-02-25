@@ -29,16 +29,36 @@ function findCardsToRemove(cardClicked){
 
 function checkNext(card){
   $eval = card.next();
-  console.log("comparing the prev card " + card.find(".value").text() + "with the next card "+ $eval.find(".value").text());
   if($eval == null && $eval.hasClass("faceDown") && $eval.hasClass("blocked")){
+    console.log("There's a no condition.");
     return null;
   } else if (+$eval.find(".value").text()+1 == +card.find(".value").text()
            && $eval.find(".suit").text() == card.find(".suit").text()){
-    if (+$eval.find(".value").text == 1){
-      removeCards();
+    if (+$eval.find(".value").text() == 1){
+      console.log("It's an ace!");
+      removeCards($eval);
+      checkWin();
     } else {
+      console.log("Comparing the next card!");
       checkNext($eval);      
     }
+  }
+}
+
+function checkWin(){
+  $cards = $(".board").find(".card");
+  if($cards.length == 0){
+    alert("Congratulations! You won! Refresh the page to play again.");
+  }
+}
+
+function removeCards(card){
+  console.log("Time to remove the cards!");
+  var $toRemove = card;
+  for (var i = 0; i < 13; i++){
+    var next = $toRemove.prev();
+    $toRemove.remove();
+    $toRemove = next;
   }
 }
 
