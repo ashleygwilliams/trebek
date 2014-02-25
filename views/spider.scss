@@ -87,11 +87,16 @@ h1 {
   }
 }
 
+
+.lower {
+  display: block;
+  position: relative;
+  bottom: 20px;
+}
+
 .reserve {
-  z-index: -1;
   width: 50%;
-  position: fixed;
-  bottom: 10px;
+  position: absolute;
   right: 0px;
   & .column {
     @include border-radius(10px);
@@ -108,7 +113,6 @@ h1 {
 
 /* score */
 .score {
-  position: fixed;
-  bottom: 0px;
+  position: absolute;
   left: 20px;
 }
