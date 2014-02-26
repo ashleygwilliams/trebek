@@ -32,7 +32,7 @@ body {
 }
 
 .column {
-  width: 8%;
+  width: 70px;
   display: inline-block;
   vertical-align: top;
   margin: 0 
@@ -49,9 +49,10 @@ body {
 /* layout components */
 .board {
   position:relative;
-  top: -60px;
+  bottom: 40px;
   width: 90%;
   margin: auto;
+  white-space: nowrap;
 }
 
 footer {
@@ -92,7 +93,7 @@ h1 {
   border: solid black 1px;
   position: relative;
   height: 100px;
-  margin-top: -50px;
+  margin-top: -75px;
   padding: 5px;
 
 
@@ -124,20 +125,23 @@ h1 {
 
 .lower {
   display: block;
-  position: relative;
-  bottom: 20px;
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
 }
 
 .reserve {
   width: 50%;
   position: absolute;
-  right: 0px;
+  right: 5px;
+  bottom: 10px;
+  white-space: nowrap;
   & .column {
     @include border-radius(10px);
     background-color: $flatiron-blue;
     border: solid black 1px;
     height: 100px;
-    width: 14%;
     margin: 0;
   }
   & .card {
