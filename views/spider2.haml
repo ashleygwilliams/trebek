@@ -14,8 +14,7 @@
         - @card=@deck.shift
         = partial :spider_card
 .lower
-  .score
-    %h1 Score: 0
+  = "<h1 class='score-container'>Score: <span class='score'>500</span></h1>"
   .reserve
     -6.times do
       .column

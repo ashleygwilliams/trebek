@@ -42,7 +42,7 @@ body {
   background-color: grey;
   height: 100px;
   position: relative;
-  top: 50px;
+  top: 25px;
   @include border-radius(10px);
 }
 
@@ -150,7 +150,7 @@ h1 {
 }
 
 /* score */
-.score {
+.score-container {
   position: absolute;
   left: 20px;
 }

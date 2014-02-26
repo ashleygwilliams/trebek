@@ -53,6 +53,7 @@ function checkNext(card){
       $cardBeforeKing.removeClass("faceDown");
       removeCards($eval);
       unblockCards($blocked);
+      $(".score").text(Number($(".score").text()) + 100);
       checkWin();
     } else {
       checkNext($eval);      
@@ -78,6 +79,7 @@ function removeCards(card){
 
 
 $(document).ready(function(){
+  var score = 500;
   
   //add colors to cards
   $(".card").each(function(card){
@@ -124,10 +126,14 @@ $(document).ready(function(){
           if ($this.find(".suit").text().trim() != $firstSelected.find(".suit").text().trim()){
             $firstSelected.prevAll().not(".faceDown").addClass("blocked");
           }
+          //decrease score by 1
+          $(".score").text(Number($(".score").text() - 1));
         }
       }
     }
   });
+
+//$score.text(Number($score.text()) + Number($points));
 
   //handle reserve cards
   $(".reserve .column").on("click", function(){
