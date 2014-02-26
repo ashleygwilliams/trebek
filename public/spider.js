@@ -36,6 +36,7 @@ function findCardsToRemove(cardClicked){
   $.each(colContents, function(){
     if(+$(this).find(".value").text() == 13 && !$(this).hasClass("faceDown") && !$(this).hasClass("blocked")){
       $king = $(this);
+      $cardBeforeKing = $king.prev();
       checkNext($king);
     }
   });
@@ -48,7 +49,10 @@ function checkNext(card){
   } else if (+$eval.find(".value").text()+1 == +card.find(".value").text()
            && $eval.find(".suit").text().trim() == card.find(".suit").text().trim()){
     if (+$eval.find(".value").text() == 1){
+      var $blocked = $eval.prevAll(".blocked");
+      $cardBeforeKing.removeClass("faceDown");
       removeCards($eval);
+      unblockCards($blocked);
       checkWin();
     } else {
       checkNext($eval);      
@@ -132,7 +136,6 @@ $(document).ready(function(){
           //block card when card is off-suit
           if ($card.find(".suit").text().trim() != $card.prev().find(".suit").text().trim() ||
             +$card.find(".value").text() != +$card.prev().find(".value").text()-1){
-            console.log("blocked!");
             $card.prevAll().not(".faceDown").addClass("blocked");
           }
         });
