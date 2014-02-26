@@ -69,24 +69,47 @@ h1 {
   font-size: 40px;
 }
 
+.red {
+  -webkit-box-shadow: inset 0px 0px 0px 5px rgba(235,0,0,1);
+  -moz-box-shadow: inset 0px 0px 0px 5px rgba(235,0,0,1);
+  box-shadow: inset 0px 0px 0px 5px rgba(235,0,0,1);
+
+  color: red;
+}
+
+.black {
+  -webkit-box-shadow: inset 0px 0px 0px 5px rgba(0,0,0,1);
+  -moz-box-shadow: inset 0px 0px 0px 5px rgba(0,0,0,1);
+  box-shadow: inset 0px 0px 0px 5px rgba(0,0,0,1);
+}
+
 /* cards */
 .card {
   @include border-radius(10px);
 
-  background-color: $flatiron-blue;
+  background-color: white;
+
   border: solid black 1px;
   position: relative;
   height: 100px;
   margin-top: -50px;
+  padding: 5px;
+
+
 
   /* card components */
-  .value {
+  .value, .suit, .color {
     display: none;
   }
 
   /* card states */
   &.faceDown {
-    & .face, .value, .suit, .color {
+    background-color: $flatiron-blue;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    & .face {
       display: none;
     }
   }
@@ -94,7 +117,7 @@ h1 {
   &.selected {
     position: relative;
     top: 10px;
-    border: solid red 1px;
+    border: solid yellow 1px;
   }
 }
 

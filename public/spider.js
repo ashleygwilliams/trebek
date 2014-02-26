@@ -79,6 +79,15 @@ function removeCards(card){
 
 $(document).ready(function(){
   
+  //add colors to cards
+  $(".card").each(function(card){
+    if($(this).find(".color").text().trim() == "black"){
+      $(this).addClass("black");
+    } else {
+      $(this).addClass("red");
+    }
+  });
+  
   //flip last row in each column face-up to start game
   $(".board .column").each(function(col){
     $(this).children().last().removeClass("faceDown");
