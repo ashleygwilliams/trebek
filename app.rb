@@ -20,6 +20,10 @@ class Gambit < Sinatra::Application
     haml :index
   end
 
+  get "/spider" do
+    haml :spider
+  end
+
   get "/games/new/" do
     haml :game_form
   end

@@ -8,6 +8,17 @@ $flatiron-blue: #26c4ff;
           border-radius: $size;
 }
 
+h2 {
+  color: white;
+}
+
+.selection {
+  font-size: 20px;
+  color: white;
+  display: block;
+  text-decoration: none;
+}
+
 body {
   font-family: 'Overlock', 'Helvetica', 'Arial', sans-serif;
   background: url(/img/shattered-island.gif);
