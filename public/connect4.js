@@ -27,7 +27,6 @@ $(document).ready(function() {
       var $above = $(newC + newR);
       $above.addClass("playable");
       $above.removeClass("disabled");
-
       // check for a winner
       if(isWinner(Number(matches[1]), Number(matches[2]), matches[3])) {
         $cards.addClass("gameOver");
@@ -46,30 +45,36 @@ $(document).ready(function() {
     }
   });
 
-  function check(col, row, color, direction) {
-    if($(".c"+col+".r"+row).hasClass(color)) {
-      direction += 1;
-      if($(".c"+col+".r"+row).hasClass(color)) {
-        direction += 1;
-        if($(".c"+col+".r"+row).hasClass(color)) {
-          direction += 1;
-        }
+  function check(col, row, color, cDelta, rDelta) {
+    var inaRow = 1;
+    var cInc = cDelta;
+    var rInc = rDelta;
+    var cDec = cDelta;
+    var rDec = rDelta;
+    while($(".c"+(col+cInc)+".r"+(row+rInc)).hasClass(color)) {
+      inaRow += 1;
+      cInc += cDelta;
+      rInc += rDelta;
+    }
+    if (cDelta != 0) {
+      while($(".c"+(col-cDec)+".r"+(row-rDec)).hasClass(color)) {
+        inaRow += 1;
+        cDec += cDelta;
+        rDec += rDelta;
       }
     }
+    return inaRow;
   }
 
   function isWinner(c, r, color) {
     var ne = 1;
+    var ew = 1;
     var nw = 1;
     var s = 1;
-    var ew = 1;
-    check(c+1, r+1, color, ne);
-    check(c+1, r, color, ew);
-    check(c+1, r-1, color, nw);
-    check(c, r-1, color, s);
-    check(c-1, r-1, color, ne);
-    check(c-1, r, color, ew);
-    check(c-1, r+1, color, nw);
+    ne = check(c, r, color, 1, 1);
+    ew = check(c, r, color, 1, 0);
+    nw = check(c, r, color, 1, -1);
+    s = check(c, r, color, 0, -1);
     if(ne>=4 || ew>=4 || nw>=4 || s>=4) {
       return true;
     }
