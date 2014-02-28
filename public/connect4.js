@@ -47,10 +47,7 @@ $(document).ready(function() {
 
   function check(col, row, color, cDelta, rDelta) {
     var inaRow = 1;
-    var cInc = cDelta;
-    var rInc = rDelta;
-    var cDec = cDelta;
-    var rDec = rDelta;
+    var cInc = cDelta, rInc = rDelta, cDec = cDelta, rDec = rDelta;
     while($(".c"+(col+cInc)+".r"+(row+rInc)).hasClass(color)) {
       inaRow += 1;
       cInc += cDelta;
@@ -67,10 +64,7 @@ $(document).ready(function() {
   }
 
   function isWinner(c, r, color) {
-    var ne = 1;
-    var ew = 1;
-    var nw = 1;
-    var s = 1;
+    var ne = 1, ew = 1, nw = 1, s = 1;
     ne = check(c, r, color, 1, 1);
     ew = check(c, r, color, 1, 0);
     nw = check(c, r, color, 1, -1);
