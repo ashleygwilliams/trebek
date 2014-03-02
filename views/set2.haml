@@ -7,6 +7,9 @@
 .button
   %h3 click to reshuffle deck
 
+.hint
+  %h3 hint?
+
 .board
   - @cards[0..11].each_slice(3) do |slice|
     .row

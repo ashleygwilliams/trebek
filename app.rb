@@ -13,7 +13,7 @@ class Gambit < Sinatra::Application
   end
 
   get "/styles.css" do
-    scss :trebek
+    scss :styles
   end
 
   get "/set.css" do
@@ -37,13 +37,6 @@ class Gambit < Sinatra::Application
     @cards = deck.cards
     haml :"#{params[:type]}"
   end
-
-  # get "/games/students/set/set" do
-  #   deck = Deck.new("data/set.yml")
-  #   @cards = deck.cards
-  #   haml :set2
-  # => this was only put here in case i needed to do server-side logic
-  # end
 
   get "/games/students/:type/:deck_file" do
     deck = Deck.new("data/#{params[:deck_file]}.yml")

@@ -1,8 +1,12 @@
-var $scoreContainer = $(".score h3").first();
-var $setContainer = $(".score h3").last();
+var $scoreContainer = $(".score h3").first(),
+    $setContainer = $(".score h3").last(),
+    $button,
+    setArray = [];
 
 $(document).ready(function() {
-  var $card = $("div.card");
+  var $card = $("div.card"),
+      $hint = $("div.hint h3");
+
   $button = $(".button");
 
   countSets();
@@ -17,6 +21,7 @@ $(document).ready(function() {
     if ($chosen.length === 3) {
       if (isASet($chosen)) {
         var score = parseInt($scoreContainer.text().match(/\d+/g));
+        $card.removeClass("hintCard");
         $scoreContainer.text("cards remaining: " + (score - 3));
         removeSet($chosen);
       } else {
@@ -25,8 +30,16 @@ $(document).ready(function() {
     }
   });
 
-  $button.on("click", function() {
-    shuffleCards();
+  $button.on("click", function() { shuffleCards(); });
+
+  $hint.on("click", function() {
+    $card.removeClass("hintCard");
+
+    setArray[Math.floor(Math.random() * setArray.length)].each(function() {
+      $(this).addClass("hintCard");
+    });
+
+    setTimeout(function() {$card.removeClass("hintCard")}, 2000);
   });
 });
 
@@ -45,6 +58,7 @@ function countSets() {
 }
 
 function findSets() {
+  setArray = [];
   var counter = 0;
   var $cardsOnTable = $(".board div.card").not(".chosen");
   
@@ -52,7 +66,10 @@ function findSets() {
   var combinations = k_combinations(set, 3);
 
   for (var i = 0, combination; combination = combinations[i]; i++) {
-    if (isASet($(combination))) { counter++; }
+    if (isASet($(combination))) {
+      setArray.push($(combination));
+      counter++;
+    }
   }
 
   return counter;
