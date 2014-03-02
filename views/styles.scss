@@ -99,12 +99,12 @@ h1 {
   }
 
   /* card status */
-  &.chosen {
-    border: 2.5px solid yellow;
-  }
-
   &.hintCard {
     border: 2.5px solid red;
+  }
+  
+  &.chosen {
+    border: 2.5px solid yellow;
   }
 
   &.played {

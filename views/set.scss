@@ -48,14 +48,6 @@ h3 {
   &.selected {
     outline: red solid thick;
   }
-
-  &.chosen {
-    // border: 2.5px solid red;
-  }
-
-  // &.hintCard {
-  //   outline: red solid thick;
-  // }
 }
 
 .wrapper {
@@ -74,7 +66,7 @@ h3 {
   display: inline-block;
 }
 
-.button, .card, .hint {
+.button h3, .card, .hint h3 {
   cursor: pointer;
 }
 
