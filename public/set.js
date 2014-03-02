@@ -1,11 +1,11 @@
 var $scoreContainer = $(".score h3").first(),
     $setContainer = $(".score h3").last(),
+    $hint = $("div.hint"),
     $button,
     setArray = [];
 
 $(document).ready(function() {
-  var $card = $("div.card"),
-      $hint = $("div.hint h3");
+  var $card = $("div.card");
 
   $button = $(".button");
 
@@ -46,13 +46,16 @@ $(document).ready(function() {
 function countSets() {
   var sets = findSets();
   if (sets === 0) {
-    if ($(".card").length < 13) { 
+    $hint.hide();
+
+    if ($(".card").length < 13) {
       $setContainer.text("You found all the sets in the deck!");
     } else {
       $setContainer.text("no sets on the table!"); 
-      $button.fadeIn();
+      $button.show();
     }
-  } else { 
+  } else {
+    $hint.show();
     $setContainer.text("sets on the table: " + sets); 
   }
 }
@@ -110,7 +113,7 @@ function removeSet(cards) {
 }
 
 function shuffleCards() {
-  $button.fadeOut();
+  $button.show();
 
   var $hiddenCards = $(".hidden div.card");
   if ($hiddenCards.length <= 12) {
