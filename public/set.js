@@ -56,9 +56,8 @@ function countSets() {
     }
   } else {
     $hint.show();
-    $setContainer.text("sets on the table: " + sets); 
-  } else {
     $button.hide();
+    $setContainer.text("sets on the table: " + sets); 
   }
 }
 
