@@ -37,9 +37,8 @@ $(document).ready(function() {
 
     setArray[Math.floor(Math.random() * setArray.length)].each(function() {
       $(this).addClass("hintCard");
+      setTimeout(function() {$(this).removeClass("hintCard")}, 2000);
     });
-
-    setTimeout(function() {$card.removeClass("hintCard")}, 2000);
   });
 });
 
