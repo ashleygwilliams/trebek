@@ -2,7 +2,9 @@ var $scoreContainer = $(".score h3").first(),
     $setContainer = $(".score h3").last(),
     $hint = $("div.hint"),
     $button,
-    setArray = [];
+    setArray = [],
+    hintCards,
+    timeout;
 
 $(document).ready(function() {
   var $card = $("div.card");
@@ -34,11 +36,19 @@ $(document).ready(function() {
 
   $hint.on("click", function() {
     $card.removeClass("hintCard");
+    if (timeout) { clearTimeout(timeout); }
 
-    setArray[Math.floor(Math.random() * setArray.length)].each(function() {
-      $(this).addClass("hintCard");
-      setTimeout(function() {$(this).removeClass("hintCard")}, 2000);
-    });
+    newHint = setArray[Math.floor(Math.random() * setArray.length)];
+
+    while (newHint === hintCards) {
+      newHint = setArray[Math.floor(Math.random() * setArray.length)];      
+    }
+
+    hintCards = newHint;
+
+    hintCards.each(function() { $(this).addClass("hintCard"); });
+
+    timeout = setTimeout(function() { $card.removeClass("hintCard"); }, 2000);
   });
 });
 
