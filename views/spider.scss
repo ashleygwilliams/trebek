@@ -35,7 +35,7 @@ body {
   width: 70px;
   display: inline-block;
   vertical-align: top;
-  margin: 0 
+  margin: 0
 }
 
 .blank {
@@ -106,6 +106,8 @@ h1 {
   /* card states */
   &.faceDown {
     background-color: $flatiron-blue;
+    background-size: cover;
+    background-image: url("/img/spider.png");
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -139,13 +141,16 @@ h1 {
   white-space: nowrap;
   & .column {
     @include border-radius(10px);
+    background-size: cover;
     background-color: $flatiron-blue;
+    background-image: url("/img/spider.png");
     border: solid black 1px;
     height: 100px;
     margin: 0;
   }
   & .card {
     display: none;
+    background-image: url("/img/spider.png");
   }
 }
 
