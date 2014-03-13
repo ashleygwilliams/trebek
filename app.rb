@@ -21,8 +21,12 @@ class Gambit < Sinatra::Application
   end
 
   get "/" do
-    haml :index
+    deck = Deck.new("data/set.yml")
+    @cards = deck.cards.shuffle
+    haml :set2
   end
+
+# all the code below is ashley's initial setup
 
   get "/games/new/" do
     haml :game_form
