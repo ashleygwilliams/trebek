@@ -1,0 +1,416 @@
+- value: 1
+  face: A &#9829;
+  suit: hearts
+  color: red
+- value: 1
+  face: A &#9830;
+  suit: diamonds
+  color: red
+- value: 1
+  face: A &#9827;
+  suit: clubs
+  color: black
+- value: 1
+  face: A &#9824;
+  suit: spades
+  color: black
+- value: 2
+  face: 2 &#9829;
+  suit: hearts
+  color: red
+- value: 2
+  face: 2 &#9830;
+  suit: diamonds
+  color: red
+- value: 2
+  face: 2 &#9827;
+  suit: clubs
+  color: black
+- value: 2
+  face: 2 &#9824;
+  suit: spades
+  color: black
+- value: 3
+  face: 3 &#9829;
+  suit: hearts
+  color: red
+- value: 3
+  face: 3 &#9830;
+  suit: diamonds
+  color: red
+- value: 3
+  face: 3 &#9827;
+  suit: clubs
+  color: black
+- value: 3
+  face: 3 &#9824;
+  suit: spades
+  color: black
+- value: 4
+  face: 4 &#9829;
+  suit: hearts
+  color: red
+- value: 4
+  face: 4 &#9830;
+  suit: diamonds
+  color: red
+- value: 4
+  face: 4 &#9827;
+  suit: clubs
+  color: black
+- value: 4
+  face: 4 &#9824;
+  suit: spades
+  color: black
+- value: 5
+  face: 5 &#9829;
+  suit: hearts
+  color: red
+- value: 5
+  face: 5 &#9830;
+  suit: diamonds
+  color: red
+- value: 5
+  face: 5 &#9827;
+  suit: clubs
+  color: black
+- value: 5
+  face: 5 &#9824;
+  suit: spades
+  color: black
+- value: 6
+  face: 6 &#9829;
+  suit: hearts
+  color: red
+- value: 6
+  face: 6 &#9830;
+  suit: diamonds
+  color: red
+- value: 6
+  face: 6 &#9827;
+  suit: clubs
+  color: black
+- value: 6
+  face: 6 &#9824;
+  suit: spades
+  color: black
+- value: 7
+  face: 7 &#9829;
+  suit: hearts
+  color: red
+- value: 7
+  face: 7 &#9830;
+  suit: diamonds
+  color: red
+- value: 7
+  face: 7 &#9827;
+  suit: clubs
+  color: black
+- value: 7
+  face: 7 &#9824;
+  suit: spades
+  color: black
+- value: 8
+  face: 8 &#9829;
+  suit: hearts
+  color: red
+- value: 8
+  face: 8 &#9830;
+  suit: diamonds
+  color: red
+- value: 8
+  face: 8 &#9827;
+  suit: clubs
+  color: black
+- value: 8
+  face: 8 &#9824;
+  suit: spades
+  color: black
+- value: 9
+  face: 9 &#9829;
+  suit: hearts
+  color: red
+- value: 9
+  face: 9 &#9830;
+  suit: diamonds
+  color: red
+- value: 9
+  face: 9 &#9827;
+  suit: clubs
+  color: black
+- value: 9
+  face: 9 &#9824;
+  suit: spades
+  color: black
+- value: 10
+  face: 10 &#9829;
+  suit: hearts
+  color: red
+- value: 10
+  face: 10 &#9830;
+  suit: diamonds
+  color: red
+- value: 10
+  face: 10 &#9827;
+  suit: clubs
+  color: black
+- value: 10
+  face: 10 &#9824;
+  suit: spades
+  color: black
+- value: 11
+  face: J &#9829;
+  suit: hearts
+  color: red
+- value: 11
+  face: J &#9830;
+  suit: diamonds
+  color: red
+- value: 11
+  face: J &#9827;
+  suit: clubs
+  color: black
+- value: 11
+  face: J &#9824;
+  suit: spades
+  color: black
+- value: 12
+  face: Q &#9829;
+  suit: hearts
+  color: red
+- value: 12
+  face: Q &#9830;
+  suit: diamonds
+  color: red
+- value: 12
+  face: Q &#9827;
+  suit: clubs
+  color: black
+- value: 12
+  face: Q &#9824;
+  suit: spades
+  color: black
+- value: 13
+  face: K &#9829;
+  suit: hearts
+  color: red
+- value: 13
+  face: K &#9830;
+  suit: diamonds
+  color: red
+- value: 13
+  face: K &#9827;
+  suit: clubs
+  color: black
+- value: 13
+  face: K &#9824;
+  suit: spades
+  color: black
+- value: 1
+  face: A &#9829;
+  suit: hearts
+  color: red
+- value: 1
+  face: A &#9830;
+  suit: diamonds
+  color: red
+- value: 1
+  face: A &#9827;
+  suit: clubs
+  color: black
+- value: 1
+  face: A &#9824;
+  suit: spades
+  color: black
+- value: 2
+  face: 2 &#9829;
+  suit: hearts
+  color: red
+- value: 2
+  face: 2 &#9830;
+  suit: diamonds
+  color: red
+- value: 2
+  face: 2 &#9827;
+  suit: clubs
+  color: black
+- value: 2
+  face: 2 &#9824;
+  suit: spades
+  color: black
+- value: 3
+  face: 3 &#9829;
+  suit: hearts
+  color: red
+- value: 3
+  face: 3 &#9830;
+  suit: diamonds
+  color: red
+- value: 3
+  face: 3 &#9827;
+  suit: clubs
+  color: black
+- value: 3
+  face: 3 &#9824;
+  suit: spades
+  color: black
+- value: 4
+  face: 4 &#9829;
+  suit: hearts
+  color: red
+- value: 4
+  face: 4 &#9830;
+  suit: diamonds
+  color: red
+- value: 4
+  face: 4 &#9827;
+  suit: clubs
+  color: black
+- value: 4
+  face: 4 &#9824;
+  suit: spades
+  color: black
+- value: 5
+  face: 5 &#9829;
+  suit: hearts
+  color: red
+- value: 5
+  face: 5 &#9830;
+  suit: diamonds
+  color: red
+- value: 5
+  face: 5 &#9827;
+  suit: clubs
+  color: black
+- value: 5
+  face: 5 &#9824;
+  suit: spades
+  color: black
+- value: 6
+  face: 6 &#9829;
+  suit: hearts
+  color: red
+- value: 6
+  face: 6 &#9830;
+  suit: diamonds
+  color: red
+- value: 6
+  face: 6 &#9827;
+  suit: clubs
+  color: black
+- value: 6
+  face: 6 &#9824;
+  suit: spades
+  color: black
+- value: 7
+  face: 7 &#9829;
+  suit: hearts
+  color: red
+- value: 7
+  face: 7 &#9830;
+  suit: diamonds
+  color: red
+- value: 7
+  face: 7 &#9827;
+  suit: clubs
+  color: black
+- value: 7
+  face: 7 &#9824;
+  suit: spades
+  color: black
+- value: 8
+  face: 8 &#9829;
+  suit: hearts
+  color: red
+- value: 8
+  face: 8 &#9830;
+  suit: diamonds
+  color: red
+- value: 8
+  face: 8 &#9827;
+  suit: clubs
+  color: black
+- value: 8
+  face: 8 &#9824;
+  suit: spades
+  color: black
+- value: 9
+  face: 9 &#9829;
+  suit: hearts
+  color: red
+- value: 9
+  face: 9 &#9830;
+  suit: diamonds
+  color: red
+- value: 9
+  face: 9 &#9827;
+  suit: clubs
+  color: black
+- value: 9
+  face: 9 &#9824;
+  suit: spades
+  color: black
+- value: 10
+  face: 10 &#9829;
+  suit: hearts
+  color: red
+- value: 10
+  face: 10 &#9830;
+  suit: diamonds
+  color: red
+- value: 10
+  face: 10 &#9827;
+  suit: clubs
+  color: black
+- value: 10
+  face: 10 &#9824;
+  suit: spades
+  color: black
+- value: 11
+  face: J &#9829;
+  suit: hearts
+  color: red
+- value: 11
+  face: J &#9830;
+  suit: diamonds
+  color: red
+- value: 11
+  face: J &#9827;
+  suit: clubs
+  color: black
+- value: 11
+  face: J &#9824;
+  suit: spades
+  color: black
+- value: 12
+  face: Q &#9829;
+  suit: hearts
+  color: red
+- value: 12
+  face: Q &#9830;
+  suit: diamonds
+  color: red
+- value: 12
+  face: Q &#9827;
+  suit: clubs
+  color: black
+- value: 12
+  face: Q &#9824;
+  suit: spades
+  color: black
+- value: 13
+  face: K &#9829;
+  suit: hearts
+  color: red
+- value: 13
+  face: K &#9830;
+  suit: diamonds
+  color: red
+- value: 13
+  face: K &#9827;
+  suit: clubs
+  color: black
+- value: 13
+  face: K &#9824;
+  suit: spades
+  color: black

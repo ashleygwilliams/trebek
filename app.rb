@@ -13,11 +13,21 @@ class Gambit < Sinatra::Application
   end
 
   get "/styles.css" do
-    scss :trebek
+    scss :spider
   end
 
   get "/" do
-    haml :index
+    haml :spider
+  end
+
+  get "/spider" do
+    haml :spider
+  end
+
+  get "/:type/:deck_file" do
+    deck = Deck.new("data/#{params[:deck_file]}.yml")
+    @cards = deck.cards
+    haml :"#{params[:type]}2"
   end
 
   get "/games/new/" do
@@ -62,13 +72,13 @@ class Gambit < Sinatra::Application
         template = template.is_a?(Array) ? :"_#{template.first.class.to_s.downcase}" : :"_#{template.class.to_s.downcase}"
       end
       if locals.is_a?(Hash)
-        haml template, {}, locals      
+        haml template, {}, locals
       elsif locals
         locals=[locals] unless locals.respond_to?(:inject)
         locals.inject([]) do |output,element|
           output << haml(template,{template.to_s.delete("_").to_sym => element})
         end.join("\n")
-      else 
+      else
         haml template
       end
     end

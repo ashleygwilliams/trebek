@@ -1,0 +1,25 @@
+%h1 Spider Solitaire
+.board
+  - @deck = @cards.shuffle
+  - 4.times do
+    .column
+      .blank
+      - 6.times do
+        - @card=@deck.shift
+        = partial :spider_card
+  - 6.times do
+    .column
+      .blank
+      -5.times do
+        - @card=@deck.shift
+        = partial :spider_card
+.lower
+  = "<h1 class='score-container'>Score: <span class='score'>500</span></h1>"
+  .reserve
+    -5.times do
+      .column
+        - 10.times do
+          - @card=@deck.shift
+          = partial :spider_card
+%script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+%script{:src=>"/spider.js"}

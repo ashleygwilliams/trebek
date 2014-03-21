@@ -1,0 +1,161 @@
+$flatiron-blue: #26c4ff;
+
+@import url(http://fonts.googleapis.com/css?family=Overlock:400,700,900,400italic,700italic,900italic);
+
+@mixin border-radius($size) {
+  -webkit-border-radius: $size;
+     -moz-border-radius: $size;
+          border-radius: $size;
+}
+
+h2 {
+  color: white;
+}
+
+.selection {
+  font-size: 20px;
+  color: white;
+  display: block;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Overlock', 'Helvetica', 'Arial', sans-serif;
+  background: url(/img/shattered-island.gif);
+}
+
+/* grid */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.column {
+  width: 70px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0
+}
+
+.blank {
+  background-color: grey;
+  height: 100px;
+  position: relative;
+  top: 25px;
+  @include border-radius(10px);
+}
+
+/* layout components */
+.board {
+  position:relative;
+  bottom: 40px;
+  width: 90%;
+  margin: auto;
+  white-space: nowrap;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+/* type */
+h1 {
+  color: white;
+  font-weight: 900;
+  font-size: 40px;
+}
+
+.red {
+  -webkit-box-shadow: inset 0px 0px 0px 5px rgba(235,0,0,1);
+  -moz-box-shadow: inset 0px 0px 0px 5px rgba(235,0,0,1);
+  box-shadow: inset 0px 0px 0px 5px rgba(235,0,0,1);
+
+  color: red;
+}
+
+.black {
+  -webkit-box-shadow: inset 0px 0px 0px 5px rgba(0,0,0,1);
+  -moz-box-shadow: inset 0px 0px 0px 5px rgba(0,0,0,1);
+  box-shadow: inset 0px 0px 0px 5px rgba(0,0,0,1);
+}
+
+/* cards */
+.card {
+  @include border-radius(10px);
+
+  background-color: white;
+
+  border: solid black 1px;
+  position: relative;
+  height: 100px;
+  margin-top: -75px;
+  padding: 5px;
+
+
+
+  /* card components */
+  .value, .suit, .color {
+    display: none;
+  }
+
+  /* card states */
+  &.faceDown {
+    background-color: $flatiron-blue;
+    background-size: cover;
+    background-image: url("/img/spider.png");
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    & .face {
+      display: none;
+    }
+  }
+
+  &.selected {
+    position: relative;
+    top: 10px;
+    border: solid yellow 1px;
+  }
+}
+
+
+.lower {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+}
+
+.reserve {
+  width: 50%;
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+  white-space: nowrap;
+  & .column {
+    @include border-radius(10px);
+    background-size: cover;
+    background-color: $flatiron-blue;
+    background-image: url("/img/spider.png");
+    border: solid black 1px;
+    height: 100px;
+    margin: 0;
+  }
+  & .card {
+    display: none;
+    background-image: url("/img/spider.png");
+  }
+}
+
+/* score */
+.score-container {
+  position: absolute;
+  left: 20px;
+}
