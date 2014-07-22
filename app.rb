@@ -23,7 +23,7 @@ class Gambit < Sinatra::Application
   get "/" do
     deck = Deck.new("data/olivers_memory_game.yml")
     @cards = deck.cards
-    haml :olivers_memory_game2
+    haml :olivers_memory_game
   end
 
   get "/games/new/" do
@@ -68,13 +68,13 @@ class Gambit < Sinatra::Application
         template = template.is_a?(Array) ? :"_#{template.first.class.to_s.downcase}" : :"_#{template.class.to_s.downcase}"
       end
       if locals.is_a?(Hash)
-        haml template, {}, locals      
+        haml template, {}, locals
       elsif locals
         locals=[locals] unless locals.respond_to?(:inject)
         locals.inject([]) do |output,element|
           output << haml(template,{template.to_s.delete("_").to_sym => element})
         end.join("\n")
-      else 
+      else
         haml template
       end
     end
