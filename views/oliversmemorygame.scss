@@ -1,0 +1,85 @@
+
+
+@mixin border-radius($size) {
+  -webkit-border-radius: $size;
+     -moz-border-radius: $size;
+          border-radius: $size;
+}
+
+.col5 {
+  width: 20%;
+  display: inline-block;
+}
+
+.mem_card {
+  height: 25%;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 15px;
+
+  .points {
+    display: none;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 27.5px;
+    color: white;
+    font-weight: 700;
+  }
+
+  &.played {
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+  }
+
+  &.two {
+    background-color: lightskyblue;
+  }
+
+  &.three {
+    background-color: lightgreen;
+  }
+
+  &.four {
+    background-color: lightsalmon;
+  } 
+
+  &.backside {
+    background-color: black;
+  }
+  &.frontside {
+    border: 2px solid white;
+  }
+}
+
+.mem_header {
+  color: white;
+  font-size: 1.12em;
+  position: relative;
+  h2 {
+    display:inline-block;
+  }
+  .mem_scoreboard {
+  font-size: 1.7em;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  }
+  .mem_timer {
+    font-size: 1.7em;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  button {
+    color: black;
+    @include border-radius(20px);
+    width: 200;
+    height: 100px;
+  }
+
+}
+
+

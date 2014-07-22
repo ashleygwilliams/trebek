@@ -99,9 +99,10 @@ h1 {
   }
 
   /* card status */
-  &.chosen {
+  .chosen {
     border: 2.5px solid yellow;
   }
+  
   &.played {
     border: 2.5px solid gray;
     background: gray url("/img/trebek\-small.png") no-repeat center;
